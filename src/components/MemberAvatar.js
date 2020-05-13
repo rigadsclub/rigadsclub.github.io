@@ -17,6 +17,17 @@ const useStyles = makeStyles((theme) => ({
         width: theme.spacing(17),
         height: theme.spacing(17),
     },
+    name: {
+        padding: 0,
+        margin: 0,
+        marginTop: 5,
+    },
+    bio: {
+        padding: 0,
+        margin: 4,
+        fontSize: 12,
+        color: '#494747',
+    },
     icons: {
       display: 'flex',
       flexDirection: 'row',
@@ -27,17 +38,18 @@ const useStyles = makeStyles((theme) => ({
     icon: {
         width: 20,
         height: 20,
-        margin: 2,
+        margin: '0.05rem',
     },
 }));
 
-export default function MemberAvatar({name, image, kaggle, github, linkedin}) {
+export default function MemberAvatar({name, bio, image, kaggle, github, linkedin}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
             <Avatar alt={name} src={image} className={classes.avatar} />
-            <h4>{name}</h4>
-            <div className={classes.icons}>
+            <p className={classes.name}>{name}</p>
+            <p className={classes.bio}>{bio}</p>
+            {/* <p className={classes.bio}>{bio}</p><div className={classes.icons}>
                 {kaggle && <a href={kaggle} target="_blank"><div className={classes.icon}>
                     <SvgKaggleMark />
                 </div></a>}
@@ -47,7 +59,7 @@ export default function MemberAvatar({name, image, kaggle, github, linkedin}) {
                 {linkedin && <a href={linkedin} target="_blank"><div className={classes.icon}>
                     <SvgLinkedinMark />
                 </div></a>}
-            </div>
+            </div>*/}
         </div>
     )
 }

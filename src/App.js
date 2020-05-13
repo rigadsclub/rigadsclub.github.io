@@ -13,7 +13,7 @@ import logo from './logo.svg';
 import Home from "./views/Home";
 import About from "./views/About";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     header: {
         display: 'flex',
         flexDirection: 'row',
@@ -47,12 +47,16 @@ function App() {
                     <h2>Riga Data Science Club</h2>
                 </AppBar>
                 <div className={classes.contents}>
-                    <div className={classes.navigation}>
+                    {/*
+                                        <div className={classes.navigation}>
                         <Button color="inherit" component={Link}
                                 to={"/"} >Home</Button>
                         <Button color="inherit" component={Link}
                                 to={"/about"} >About</Button>
                     </div>
+                    */
+                    }
+
                     <Switch>
                         <Route path="/">
                             <Home />
