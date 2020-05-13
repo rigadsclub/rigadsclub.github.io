@@ -8,7 +8,6 @@ import {
 import {createMuiTheme, makeStyles, ThemeProvider} from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
-import Button from '@material-ui/core/Button';
 import logo from './logo.svg';
 import Home from "./views/Home";
 import About from "./views/About";
@@ -35,10 +34,12 @@ const useStyles = makeStyles(() => ({
     navigation: {
     },
 }));
+const theme = createMuiTheme();
+
 function App() {
     const classes = useStyles();
     return (
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
             <Router>
                 <AppBar position="static" className={classes.header}>
                     <IconButton>

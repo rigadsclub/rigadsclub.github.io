@@ -67,7 +67,7 @@ export default function Members() {
         <div className={classes.root}>
             {
                 MEMBERS.map(member => (
-                    <div className={classes.avatar}>
+                    <div className={classes.avatar} key={member.name}>
                         <MemberAvatar {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
                     </div>
                 ))

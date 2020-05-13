@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {OperationSelect} from "../components/realestate/OperationSelect";
 import TextField from '@material-ui/core/TextField';
-import {loadGraphModel} from '@tensorflow/tfjs-converter';
+import * as tf from '@tensorflow/tfjs';
 import {makeStyles} from "@material-ui/core/styles";
 import Button from '@material-ui/core/Button';
 import DistrictAutocomplete from "../components/realestate/DistrictAutocomplete";
@@ -32,11 +32,14 @@ const useStyles = makeStyles((theme) => ({
 export default function Projects() {
     const classes = useStyles();
     const [model, setModel] = useState(null);
-    useEffect(async () => {
-        const m = await loadGraphModel(MODEL_URL);
-        setModel(m);
-        console.log('Model loaded');
-    });
+    useEffect(() => {
+        async function loadModel() {
+            const m = await tf.loadLayersModel(MODEL_URL);
+            setModel(m);
+            console.log('Model loaded');
+        }
+        loadModel();
+    }, []);
     return (
         <div>
             <h3>Riga real estate price prediction with AI</h3>

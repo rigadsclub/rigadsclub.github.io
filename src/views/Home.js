@@ -1,4 +1,3 @@
-import logo from "../logo.svg";
 import Members from "../components/Members";
 import React from "react";
 import Projects from "./Projects";

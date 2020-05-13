@@ -36,7 +36,7 @@ export function ConditionSelect() {
                 onChange={handleChange}
                 label='Condition'
             >
-                {CONDITION_TYPES.map(c => <MenuItem value={c.value}>{c.label}</MenuItem>)}
+                {CONDITION_TYPES.map(c => <MenuItem key={c.value} value={c.value}>{c.label}</MenuItem>)}
             </Select>
         </FormControl>
     );
