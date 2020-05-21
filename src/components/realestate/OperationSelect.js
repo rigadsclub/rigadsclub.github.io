@@ -20,19 +20,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function OperationSelect() {
+export function OperationSelect({value, onChange}) {
     const classes = useStyles();
-    const [operation, setOperation] = React.useState('For Rent');
-    const handleChange = (event) => {
-        setOperation(event.target.value);
-    };
-
     return (
         <FormControl variant="outlined" className={classes.formControl}>
             <InputLabel>Operation</InputLabel>
             <Select
-                value={operation}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
                 label="Operation"
             >
                 {OPERATIONS.map(o => <MenuItem key={o.value} value={o.value}>{o.label}</MenuItem>)}

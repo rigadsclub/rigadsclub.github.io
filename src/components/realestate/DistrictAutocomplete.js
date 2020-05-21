@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function DistrictAutocomplete() {
+export default function DistrictAutocomplete({value, onChange}) {
     const classes = useStyles();
     return (
         <Autocomplete
@@ -23,6 +23,8 @@ export default function DistrictAutocomplete() {
             freeSolo
             disableClearable
             options={DISTRICTS}
+            value={value}
+            onChange={onChange}
             fullWidth={true}
             renderInput={(params) => (
                 <TextField

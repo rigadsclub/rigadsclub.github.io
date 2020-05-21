@@ -21,19 +21,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function ConditionSelect() {
+export function ConditionSelect({value, onChange}) {
     const classes = useStyles();
-    const [condition, setCondition] = React.useState('');
-    const handleChange = (event) => {
-        setCondition(event.target.value);
-    };
-
     return (
         <FormControl variant='outlined' className={classes.formControl}>
             <InputLabel>Condition</InputLabel>
             <Select
-                value={condition}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
                 label='Condition'
             >
                 {CONDITION_TYPES.map(c => <MenuItem key={c.value} value={c.value}>{c.label}</MenuItem>)}

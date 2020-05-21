@@ -24,19 +24,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function HouseTypeSelect() {
+export function HouseTypeSelect({value, onChange}) {
     const classes = useStyles();
-    const [type, setType] = React.useState('');
-    const handleChange = (event) => {
-        setType(event.target.value);
-    };
-
     return (
         <FormControl variant='outlined' className={classes.formControl}>
             <InputLabel>House type</InputLabel>
             <Select
-                value={type}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
                 label='House type'
             >
                 {HOUSE_TYPES.map(t => <MenuItem key={t.value} value={t.value}>{t.label}</MenuItem>)}

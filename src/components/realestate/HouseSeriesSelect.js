@@ -33,19 +33,14 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export function HouseSeriesSelect() {
+export function HouseSeriesSelect({value, onChange}) {
     const classes = useStyles();
-    const [series, setSeries] = React.useState('');
-    const handleChange = (event) => {
-        setSeries(event.target.value);
-    };
-
     return (
         <FormControl variant='outlined' className={classes.formControl}>
             <InputLabel>House series</InputLabel>
             <Select
-                value={series}
-                onChange={handleChange}
+                value={value}
+                onChange={onChange}
                 label='House series'
             >
                 {HOUSE_SERIES.map(s => <MenuItem key={s.value} value={s.value}>{s.label}</MenuItem>)}
