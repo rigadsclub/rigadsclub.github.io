@@ -1,9 +1,8 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
+import {RealEstateFormControl} from "./RealEstateFormControl";
 
 const HOUSE_SERIES = [
     {label: 'Lietuviešu projekts', value: 'LT proj.'},
@@ -23,20 +22,9 @@ const HOUSE_SERIES = [
     {label: 'Čehu projekts', value: 'Čehu pr.'},
 ];
 
-const useStyles = makeStyles((theme) => ({
-    formControl: {
-        minWidth: 120,
-        width: '100%',
-        textAlign: 'left',
-        margin: 5,
-        padding: 0,
-    },
-}));
-
 export function HouseSeriesSelect({value, onChange}) {
-    const classes = useStyles();
     return (
-        <FormControl variant='outlined' className={classes.formControl}>
+        <RealEstateFormControl variant='outlined'>
             <InputLabel>House series</InputLabel>
             <Select
                 value={value}
@@ -45,6 +33,6 @@ export function HouseSeriesSelect({value, onChange}) {
             >
                 {HOUSE_SERIES.map(s => <MenuItem key={s.value} value={s.value}>{s.label}</MenuItem>)}
             </Select>
-        </FormControl>
+        </RealEstateFormControl>
     );
 }
