@@ -2,8 +2,9 @@ import IconButton from "@material-ui/core/IconButton";
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles(theme => ({
     header: {
+        color: theme.palette.text.primary,
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -11,6 +12,7 @@ const useStyles = makeStyles(() => ({
         justifyItems: 'center',
         alignItems: 'center',
         borderBottom: '1px solid #dcdce7',
+        padding: '0 10px',
     },
     identity: {
         width: '100%',
@@ -27,10 +29,10 @@ const useStyles = makeStyles(() => ({
         paddingRight: 10,
     },
     logoDark: {
-        width: 50,
-        height: 50,
+        width: 30,
+        height: 30,
         paddingRight: 12,
-        backgroundImage: `url(${process.env.PUBLIC_URL}/images/logo/ds-icon-dark.png)`,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/logo/ds-icon-white.png)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
     },

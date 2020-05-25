@@ -7,6 +7,7 @@ import SvgLinkedinMark from "./svg/SvgLinkedinMark";
 
 const useStyles = makeStyles((theme) => ({
     root: {
+        minWidth: '250px',
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
@@ -14,8 +15,8 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
         padding: 0,
-        width: theme.spacing(17),
-        height: theme.spacing(17),
+        width: theme.spacing(12),
+        height: theme.spacing(12),
     },
     name: {
         padding: 0,

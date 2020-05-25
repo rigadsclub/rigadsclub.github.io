@@ -134,7 +134,7 @@ export default function RigaRealEstateDemo() {
                     Complete few fields below to get rent and sale price estimation for any property located in Riga, Latvia:
                 </Typography>
             </div>
-            <RigaRealEstateMap map={map} setMap={setMap} location={location} setLocation={setLocation} />
+            {/*<RigaRealEstateMap map={map} setMap={setMap} location={location} setLocation={setLocation} />*/}
             <div className={classes.controls}>
                 <Step icon={<LocationOnIcon/>} title={'Real estate location'} complete={location}>
                     <EnterLocation map={map} location={location} setLocation={setLocation} />

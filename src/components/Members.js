@@ -6,10 +6,9 @@ const useStyles = makeStyles((theme) => ({
     root: {
         width: '100%',
         margin: '0 auto',
-        maxWidth: 1200,
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-around',
+        justifyContent: 'center',
         alignItems: 'flex-start',
         alignContent: 'flex-start',
         flexWrap: 'wrap'
@@ -22,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 const MEMBERS = [
     {
         name: 'Dmitry Yemelyanov',
-        image: 'dyemelyanov.jpg',
+        image: 'sonofaman.jpg',
         bio: 'Consultant@Forward IT',
         kaggle: 'https://www.kaggle.com/dmitryyemelyanov',
         github: 'https://github.com/djemeljanovs',
@@ -48,12 +47,12 @@ const MEMBERS = [
         kaggle: 'https://www.kaggle.com/danilyachmenev13',
 
     },
-    /*{
+    {
         name: 'Annija Daugaviete',
         image: 'adaugaviete.jpg',
         bio: 'Junior Data Scientist@Creditreform Latvija',
         kaggle: 'https://www.kaggle.com/annijadaugaviete',
-    },*/
+    },
     {
         name: 'Edving Kronberg',
         image: 'eauzins.jpg',

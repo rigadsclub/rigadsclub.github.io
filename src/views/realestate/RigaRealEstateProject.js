@@ -81,34 +81,32 @@ export default function RigaRealEstateProject() {
         setValue(newValue);
     };
     return (
-        <Paper elevation={3} className={classes.projectContainer}>
-            <div className={classes.project}>
-                <div className={classes.header}>
-                    <div className={classes.riga}/>
-                    <div className={classes.title}>
-                        <h3 className={classes.titleHeader}>Riga real estate price prediction</h3>
-                        <Typography variant="subtitle2" gutterBottom>
-                            Machine learning solution that suggests real estate sale and rent price
-                        </Typography>
-                    </div>
+        <div className={classes.project}>
+            <div className={classes.header}>
+                <div className={classes.riga}/>
+                <div className={classes.title}>
+                    <h3 className={classes.titleHeader}>Riga real estate price prediction</h3>
+                    <Typography variant="subtitle2" gutterBottom>
+                        Machine learning solution that suggests real estate sale and rent price
+                    </Typography>
                 </div>
-                <AppBar position="static">
-                    <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                        <Tab label="demo" />
-                        <Tab label="how it is made" />
-                        <Tab label="public Api" />
-                    </Tabs>
-                </AppBar>
-                <TabPanel value={value} index={0}>
-                    <RigaRealEstateDemo />
-                </TabPanel>
-                <TabPanel value={value} index={1}>
-                    <RigaRealEstateHow />
-                </TabPanel>
-                <TabPanel value={value} index={2}>
-                    <RigaRealEstateApi />
-                </TabPanel>
             </div>
-        </Paper>
+            <AppBar position="static">
+                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
+                    <Tab label="demo" />
+                    <Tab label="how it is made" />
+                    <Tab label="public Api" />
+                </Tabs>
+            </AppBar>
+            <TabPanel value={value} index={0}>
+                <RigaRealEstateDemo />
+            </TabPanel>
+            <TabPanel value={value} index={1}>
+                <RigaRealEstateHow />
+            </TabPanel>
+            <TabPanel value={value} index={2}>
+                <RigaRealEstateApi />
+            </TabPanel>
+        </div>
     );
 }
