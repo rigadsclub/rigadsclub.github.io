@@ -2,16 +2,16 @@ import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
     stepContainer: {
         width: '100%',
         maxWidth: '300px',
         paddingRight: '15px',
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'flex-start',
-        alignContent: 'flex-start',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
         flexWrap: 'wrap'
     },
     stepHeader: {
@@ -36,13 +36,13 @@ const useStyles = makeStyles(() => ({
         marginLeft: '3px',
     },
     stepCompleteIcon: {
-        color: '#18ac2f',
+        color: props => props.complete ? '#18ac2f' : '#dddddd',
         fontWeight: '900',
     },
-}));
+});
 
-export default function Step({children, icon, title, complete}) {
-    const classes = useStyles();
+export default function Step({children, icon, title, complete, hideCompleteIcon = false}) {
+    const classes = useStyles({complete});
     return (
         <div className={classes.stepContainer}>
             <div className={classes.stepHeader}>
@@ -50,9 +50,9 @@ export default function Step({children, icon, title, complete}) {
                     {icon}
                     <h3 className={classes.stepTitle}>{title}</h3>
                 </div>
-                {complete ? <div className={classes.stepCompleteIcon}>
+                {!hideCompleteIcon && <div className={classes.stepCompleteIcon}>
                     <CheckCircleOutlineIcon />
-                </div> : null}
+                </div>}
             </div>
             {children}
         </div>

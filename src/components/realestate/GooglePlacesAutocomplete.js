@@ -22,7 +22,6 @@ function loadScript(src, position, id) {
 }
 
 const autocompleteService = { current: null };
-const placesService = { current: null };
 
 const useStyles = makeStyles((theme) => ({
     icon: {
@@ -37,27 +36,7 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState([]);
     const loaded = React.useRef(false);
-    if (typeof window !== 'undefined' && !loaded.current) {
-        if (!document.querySelector('#google-maps')) {
-            loadScript(
-                `https://maps.googleapis.com/maps/api/js?key=${config.GOOGLE_MAP_API_KEY}&libraries=places`,
-                document.querySelector('head'),
-                'google-maps',
-            );
-        }
-
-        loaded.current = true;
-    }
-
     const fetchPlacePredictions = React.useMemo(
-        () =>
-            throttle((request, callback) => {
-                autocompleteService.current.getPlacePredictions(request, callback);
-            }, 200),
-        [],
-    );
-
-    const fetchPlaceDetails= React.useMemo(
         () =>
             throttle((request, callback) => {
                 autocompleteService.current.getPlacePredictions(request, callback);
@@ -74,7 +53,7 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
         if (!autocompleteService.current) {
             return undefined;
         }
-        const RIGA = new window.google.maps.LatLng(56.946285, 24.105078);
+        const RIGA = new window.google.maps.LatLng(config.RIGA_CENTER_LATITUDE, config.RIGA_CENTER_LONGITUDE);
         if (inputValue === '') {
             setOptions(value ? [value] : []);
             return undefined;

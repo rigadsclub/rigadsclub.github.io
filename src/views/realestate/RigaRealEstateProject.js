@@ -9,8 +9,12 @@ import RigaRealEstateDemo from "./RigaRealEstateDemo";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import RigaRealEstateApi from "./RigaRealEstateApi";
+import RigaRealEstateHow from "./RigaRealEstateHow";
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles({
+    projectContainer: {
+        maxWidth: '1320px',
+    },
     header: {
         width: '100%',
         marginLeft: '10px',
@@ -47,7 +51,7 @@ const useStyles = makeStyles(() => ({
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
     }
-}));
+});
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -77,7 +81,7 @@ export default function RigaRealEstateProject() {
         setValue(newValue);
     };
     return (
-        <Paper elevation={3}>
+        <Paper elevation={3} className={classes.projectContainer}>
             <div className={classes.project}>
                 <div className={classes.header}>
                     <div className={classes.riga}/>
@@ -91,6 +95,7 @@ export default function RigaRealEstateProject() {
                 <AppBar position="static">
                     <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
                         <Tab label="demo" />
+                        <Tab label="how it is made" />
                         <Tab label="public Api" />
                     </Tabs>
                 </AppBar>
@@ -98,6 +103,9 @@ export default function RigaRealEstateProject() {
                     <RigaRealEstateDemo />
                 </TabPanel>
                 <TabPanel value={value} index={1}>
+                    <RigaRealEstateHow />
+                </TabPanel>
+                <TabPanel value={value} index={2}>
                     <RigaRealEstateApi />
                 </TabPanel>
             </div>

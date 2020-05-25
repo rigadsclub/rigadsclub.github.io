@@ -3,6 +3,7 @@ import Button from '@material-ui/core/Button';
 import React, {useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {useConfig} from "../../../components/providers/ConfigProvider";
+import throttle from "lodash/throttle";
 
 const useStyles = makeStyles(() => ({
     locationContainer: {
@@ -13,16 +14,20 @@ const useStyles = makeStyles(() => ({
         marginTop: '10px',
     },
 }));
+
+const placesService = { current: null };
+
 /**
  * @param onChange callback will be invoked with {latitude, latitude} once location selected
  * @returns {latitude, latitude}
  * @constructor
  */
-export default function EnterLocation({location, setLocation}) {
+export default function EnterLocation({location, setLocation, map}) {
     const config = useConfig();
     const classes = useStyles({location, config});
     const [canUseGeolocation, setCanUseGeolocation] = useState(false);
     const [place, setPlace] = useState(null);
+    const [photoReference, setPhotoReference] = useState(null);
 
     React.useEffect(() => {
         if (navigator.geolocation) {
@@ -30,6 +35,31 @@ export default function EnterLocation({location, setLocation}) {
         }
     }, [canUseGeolocation, setCanUseGeolocation]);
 
+    const fetchPlaceDetails= React.useMemo(
+        () =>
+            throttle((request, callback) => {
+                placesService.current.getDetails(request, callback);
+            }, 200),
+        [],
+    );
+
+    React.useEffect(() => {
+        if (!placesService.current && window.google && map) {
+            placesService.current = new window.google.maps.places.PlacesService(map);
+        }
+        if (!placesService.current) {
+            return undefined;
+        }
+        if(place) {
+            fetchPlaceDetails({placeId: place.place_id, fields: ['geometry']}, (place, status) => {
+                if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+                    const latitude = place.geometry.location.lat();
+                    const longitude = place.geometry.location.lng();
+                    setLocation({latitude, longitude});
+                }
+            });
+        }
+    }, [map, place, fetchPlaceDetails]);
 
     function getGeolocation() {
         if (navigator.geolocation) {
@@ -39,6 +69,9 @@ export default function EnterLocation({location, setLocation}) {
         }
     }
 
+    function formatCoordinates(coordinate) {
+        return Math.round(coordinate * 1e6) / 1e6;
+    }
     function onPositionObtained(position) {
         setPlace(null);
         setLocation(position.coords); // {latitude, latitude}
@@ -58,12 +91,7 @@ export default function EnterLocation({location, setLocation}) {
             fullWidth
             onClick={getGeolocation}>Use device location
         </Button></>}
-        {(location.latitude && location.longitude)&&<p>{location.latitude}° N, {location.longitude}° E</p>}
-        {(location.latitude && location.longitude)&&<img src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}
-            &zoom=13&size=300x300&maptype=roadmap
-            &markers=color:red%7Clabel:%7C${location.latitude},${location.longitude}
-            &key=${config.GOOGLE_MAP_API_KEY}`}
-        />}
+        {(location && location.latitude && location.longitude)&&<p>{formatCoordinates(location.latitude)}° N, {formatCoordinates(location.longitude)}° E</p>}
     </div>)
 
 }

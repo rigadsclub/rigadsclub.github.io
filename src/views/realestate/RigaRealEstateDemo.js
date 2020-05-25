@@ -12,6 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import FormatLineSpacingIcon from '@material-ui/icons/FormatLineSpacing';
 import EuroSharpIcon from '@material-ui/icons/EuroSharp';
 import {RealEstateFormControl} from "../../components/realestate/RealEstateFormControl";
+import RigaRealEstateMap from "./RigaRealEstateMap";
 
 const useStyles = makeStyles(() => ({
     root: {
@@ -43,6 +44,7 @@ const useStyles = makeStyles(() => ({
     prediction: {
         width: '100%',
         margin: '15px',
+        textAlign: 'center',
     },
     ai: {
         margin: '8px',
@@ -55,11 +57,16 @@ const useStyles = makeStyles(() => ({
     }
 }));
 
+const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'EUR',
+});
+
 export default function RigaRealEstateDemo() {
     const classes = useStyles();
+    const [map, setMap] = useState(null);
     const [place, setPlace] = useState(2);
-    const [latitude, setLatitude] = useState();
-    const [longitude, setLongitude] = useState();
+    const [location, setLocation] = useState(null);
     const [area, setArea] = useState(50);
     const [floor, setFloor] = useState(5);
     const [rooms, setRooms] = useState(2);
@@ -74,7 +81,7 @@ export default function RigaRealEstateDemo() {
     const allFieldsAreComplete = () => {
         return area && floor && rooms && totalFloors
             && condition && houseType && houseSeria && district
-            && latitude && longitude;
+            && location && location.latitude && location.longitude;
     }
 
     const createInputInstance = operation => ({
@@ -88,13 +95,14 @@ export default function RigaRealEstateDemo() {
         'house_seria': [houseSeria],
         'house_type': [houseType],
         'condition': [condition],
-        'lat': [latitude],
-        'lon': [longitude],
+        'lat': [location.latitude],
+        'lon': [location.longitude],
     });
 
     useEffect(() => {
         if(allFieldsAreComplete()) {
             setLoading(true);
+            setPredictions(null);
             fetch("http://35.189.254.202:8501/v1/models/riga:predict", {
                     method: "POST",
                     body: JSON.stringify({
@@ -115,7 +123,7 @@ export default function RigaRealEstateDemo() {
                     setLoading(false);
                 });
         }
-    }, [area, floor, rooms, totalFloors, condition, houseType, houseSeria, district, latitude, longitude,
+    }, [area, floor, rooms, totalFloors, condition, houseType, houseSeria, district, location,
         setPredictions]);
 
     const photoReference = '';
@@ -126,30 +134,10 @@ export default function RigaRealEstateDemo() {
                     Complete few fields below to get rent and sale price estimation for any property located in Riga, Latvia:
                 </Typography>
             </div>
-
-
-            {/*
-            <img src={`https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${GOOGLE_MAP_API_KEY}`} />
-
-            <div style={{ height: '400px', width: '400px' }}>
-                <GoogleMapReact
-                    bootstrapURLKeys={{ key: GOOGLE_MAP_API_KEY }}
-                    defaultCenter={{
-                        lat: latitude,
-                        lng: longitude,
-                    }}
-                    defaultZoom={15}
-                >
-                    <div lat={latitude} lng={longitude}>A</div>
-                </GoogleMapReact>
-            </div>
-                        */}
+            <RigaRealEstateMap map={map} setMap={setMap} location={location} setLocation={setLocation} />
             <div className={classes.controls}>
-                <Step icon={<LocationOnIcon/>} title={'Real estate location'} complete={latitude && longitude}>
-                    <EnterLocation location={{latitude, longitude}} setLocation={({latitude, longitude}) => {
-                        setLatitude(latitude);
-                        setLongitude(longitude);
-                    }} />
+                <Step icon={<LocationOnIcon/>} title={'Real estate location'} complete={location}>
+                    <EnterLocation map={map} location={location} setLocation={setLocation} />
                 </Step>
                 {place && <Step icon={<HomeIcon/>} title={"House properties"} complete={houseSeria && houseType && totalFloors}>
                     <HouseSeriesSelect value={houseSeria} onChange={event => setHouseSeria(event.target.value)} />
@@ -199,18 +187,18 @@ export default function RigaRealEstateDemo() {
                 </Step>}
                 {/*<DistrictAutocomplete value={district} onChange={(_event, value)=> setDistrict(value)} />*/}
                 {/*<ConditionSelect value={condition} onChange={event => setCondition(event.target.value)} />*/}
-                {loading && <CircularProgress />}
-                {predictions &&<Step icon={<EuroSharpIcon />} title={"Prediction"}>
-                    <div className={classes.predictions}>
+                {<Step icon={<EuroSharpIcon />} title={"Prediction"} hideCompleteIcon>
+                    {loading && <CircularProgress />}
+                    {predictions && <div className={classes.predictions}>
                         <div className={classes.prediction}>
                             For sale:
-                            <h2 style={{margin: 3}}>{predictions[0][0].toFixed(2)} EUR</h2>
+                            <h2 style={{margin: 3}}>{formatter.format(predictions[0][0])}</h2>
                         </div>
                         <div className={classes.prediction}>
                             For rent:
-                            <h2 style={{margin: 3}}>{predictions[1][0].toFixed(2)} EUR</h2>
+                            <h2 style={{margin: 3}}>{formatter.format(predictions[1][0])}</h2>
                         </div>
-                    </div>
+                    </div>}
                 </Step>}
             </div>
         </div>
