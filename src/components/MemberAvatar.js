@@ -1,20 +1,21 @@
-import Avatar from "@material-ui/core/Avatar";
 import React from "react";
+import Avatar from "@material-ui/core/Avatar";
+import Typography from "@material-ui/core/Typography";
 import { makeStyles } from '@material-ui/core/styles';
 import SvgKaggleMark from "./svg/SvgKaggleMark";
 import SvgGithubMark from "./svg/SvgGithubMark";
 import SvgLinkedinMark from "./svg/SvgLinkedinMark";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
     root: {
-        minWidth: '250px',
+        padding: theme.spacing(2),
         display: 'flex',
         flexDirection: 'column',
         alignContent: 'center',
         alignItems: 'center',
+        textAlign: 'center',
     },
     avatar: {
-        padding: 0,
         width: theme.spacing(12),
         height: theme.spacing(12),
     },
@@ -48,8 +49,8 @@ export default function MemberAvatar({name, bio, image, kaggle, github, linkedin
     return (
         <div className={classes.root}>
             <Avatar alt={name} src={image} className={classes.avatar} />
-            <p className={classes.name}>{name}</p>
-            <p className={classes.bio}>{bio}</p>
+            <Typography variant="subtitle1">{name}</Typography>
+            <Typography variant="subtitle2">{bio}</Typography>
             {/* <p className={classes.bio}>{bio}</p><div className={classes.icons}>
                 {kaggle && <a href={kaggle} target="_blank"><div className={classes.icon}>
                     <SvgKaggleMark />

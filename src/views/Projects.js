@@ -3,12 +3,13 @@ import {makeStyles} from "@material-ui/core/styles";
 import Paper from '@material-ui/core/Paper';
 import {Link} from "react-router-dom";
 import ButtonBase from '@material-ui/core/ButtonBase'
+import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles(theme => ({
     root: {
         display: 'flex',
         flexDirection: 'row',
-        flexWrap: 'wrap',
+        flexWrap: 'no-wrap',
         paddingBottom: 10,
     },
     button: {
@@ -18,8 +19,8 @@ const useStyles = makeStyles(theme => ({
     project: {
         minWidth: '300px',
         maxWidth: '300px',
-        padding: '10px',
-        color: theme.palette.text.secondary,
+        padding: '10px 13px 13px 13px',
+        //color: theme.palette.text.secondary,
     },
     dummyProject: {
         minHeight: '438px',
@@ -28,9 +29,9 @@ const useStyles = makeStyles(theme => ({
         paddingLeft: '10px',
         paddingRight: '10px',
         paddingTop: '10px',
-        color: theme.palette.text.primary,
+        color: theme.palette.primary.contrastText,
         background: "transparent",
-        border: '3px dashed #FFFFFF',
+        border: `3px dashed ${theme.palette.primary.contrastText}`,
     },
     title: {
         margin: '0 0 10px 0',
@@ -59,11 +60,13 @@ export default function Projects() {
         <div className={classes.root}>
             <ButtonBase component={Link} to={'/riga-real-estate'} className={classes.button}>
                 <Paper elevation={3} className={classes.project}>
-                    <h3 className={classes.title}>Riga Real Estate Price Prediction</h3>
+                    <Typography variant='h6' color={'textPrimary'}>
+                        Riga Real Estate Price Prediction
+                    </Typography>
                     <div className={classes.riga}/>
                 </Paper>
             </ButtonBase>
-            <ButtonBase component={Link} to={'/traffic-sign'} className={classes.button}>
+            {/*<ButtonBase component={Link} to={'/traffic-sign'} className={classes.button}>
                 <Paper elevation={3} className={classes.project}>
                     <h3 className={classes.title}>Traffic Sign Recognition</h3>
                     <div className={classes.trafficsign}/>
@@ -74,6 +77,7 @@ export default function Projects() {
                     <h3 className={classes.title}>Join Us To Build Your Own</h3>
                 </Paper>
             </ButtonBase>
+            */}
         </div>
     );
 }

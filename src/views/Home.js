@@ -1,9 +1,13 @@
-import Members from "../components/Members";
 import React from "react";
 import Projects from "./Projects";
+import Members from "../components/Members";
 import {makeStyles} from "@material-ui/core/styles";
-import About from "./About";
 import Typography from "@material-ui/core/Typography";
+import About from "./About";
+import Footer from "./Footer";
+import TopWrapper from "./TopWrapper";
+import BottomWrapper from "./BottomWrapper";
+import JoinUs from "./JoinUs";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -15,14 +19,27 @@ export default function Home() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <section className={classes.homeSection}>
-                <h2>About</h2>
+            <TopWrapper>
+                <Typography variant='h5'>
+                    About
+                </Typography>
                 <About />
-            </section>
-            <section className={classes.homeSection}>
-                <h2>Projects</h2>
+                <Typography variant='h5'>
+                    Recent releases
+                </Typography>
                 <Projects />
-            </section>
+            </TopWrapper>
+            <BottomWrapper>
+                <Typography variant='h5'>
+                    Members
+                </Typography>
+                <Members />
+                <Typography variant='h5'>
+                    Join us
+                </Typography>
+                <JoinUs />
+                <Footer />
+            </BottomWrapper>
         </div>
     );
 }

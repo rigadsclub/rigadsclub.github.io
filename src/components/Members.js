@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import Grid from '@material-ui/core/Grid';
 import MemberAvatar from "./MemberAvatar";
 
 const useStyles = makeStyles((theme) => ({
@@ -54,23 +55,48 @@ const MEMBERS = [
         kaggle: 'https://www.kaggle.com/annijadaugaviete',
     },
     {
+        name: 'Daria Lashkevich',
+        image: 'dlashkevich.jpeg',
+        bio: 'AI Engineer | Data scientist | Speaker',
+    },
+    {
         name: 'Edving Kronberg',
         image: 'eauzins.jpg',
         bio: 'Sales Manager@LASD LV',
         kaggle: 'https://www.kaggle.com/edvinkronberg',
+    },
+    {
+        name: 'Narzullo Nasrullozoda',
+        image: 'nnasrullozoda.jpeg',
+        bio: 'Data Science and Management@Leuphana University',
+    },
+    {
+        name: 'Kate Kuznecova',
+        image: 'kkuznecova.jpeg',
+        bio: 'Data Scientist@DAIN Studios',
+    },
+    {
+        name: 'Vladyslav Yakovenko',
+        image: 'vyakovenko.jpeg',
+        bio: 'Data Scientist',
+    },
+    {
+        name: 'Audris Ločmelis',
+        image: 'aločmelis.jpeg',
+        bio: 'AI and Data Science Lead@Deloitte Latvia',
     }
 ]
 export default function Members() {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <Grid container spacing={1}>
             {
                 MEMBERS.map(member => (
-                    <div className={classes.avatar} key={member.name}>
-                        <MemberAvatar {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
-                    </div>
+                    <Grid item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
+                        <MemberAvatar key={member.name} {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
+                    </Grid>
                 ))
             }
-        </div>
+        </Grid>
     )
 }
