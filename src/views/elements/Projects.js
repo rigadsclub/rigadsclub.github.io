@@ -58,7 +58,7 @@ export default function Projects() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <ButtonBase component={Link} to={'/riga-real-estate'} className={classes.button}>
+            <ButtonBase component={Link} to={'demo.rigadsclub.com'} className={classes.button}>
                 <Paper elevation={3} className={classes.project}>
                     <Typography variant='h6' color={'textPrimary'}>
                         Riga Real Estate Price Prediction

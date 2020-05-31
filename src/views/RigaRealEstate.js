@@ -1,15 +1,11 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Tabs from '@material-ui/core/Tabs';
-import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-import Paper from '@material-ui/core/Paper';
-
-import RigaRealEstateDemo from "./RigaRealEstateDemo";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import RigaRealEstateApi from "./RigaRealEstateApi";
-import RigaRealEstateHow from "./RigaRealEstateHow";
+import RigaRealEstateApi from "./realestate/RigaRealEstateApi";
+import RigaRealEstateHow from "./realestate/RigaRealEstateHow";
+import TopWrapper from "./elements/TopWrapper";
+import BottomWrapper from "./elements/BottomWrapper";
 
 const useStyles = makeStyles({
     projectContainer: {
@@ -73,40 +69,27 @@ function TabPanel(props) {
     );
 }
 
-export default function RigaRealEstateProject() {
-    const classes = useStyles();
-    const [value, setValue] = React.useState(0);
-
-    const handleChange = (event, newValue) => {
-        setValue(newValue);
-    };
+export default function RigaRealEstate() {
     return (
-        <div className={classes.project}>
-            <div className={classes.header}>
-                <div className={classes.riga}/>
-                <div className={classes.title}>
-                    <h3 className={classes.titleHeader}>Riga real estate price prediction</h3>
-                    <Typography variant="subtitle2" gutterBottom>
-                        Machine learning solution that suggests real estate sale and rent price
-                    </Typography>
-                </div>
-            </div>
-            <AppBar position="static">
-                <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-                    <Tab label="demo" />
-                    <Tab label="how it is made" />
-                    <Tab label="public Api" />
-                </Tabs>
-            </AppBar>
-            <TabPanel value={value} index={0}>
-                <RigaRealEstateDemo />
-            </TabPanel>
-            <TabPanel value={value} index={1}>
+        <>
+            <TopWrapper>
+                <Typography variant="h5" gutterBottom>
+                    Machine learning solution that suggests real estate sale and rent price
+                </Typography>
+            </TopWrapper>
+            <BottomWrapper>
+                {/*
+                <Typography variant='h5'>
+                    How it is made
+                </Typography>
                 <RigaRealEstateHow />
-            </TabPanel>
-            <TabPanel value={value} index={2}>
+                <Typography variant='h5'>
+                    Public API
+                </Typography>
                 <RigaRealEstateApi />
-            </TabPanel>
-        </div>
+                */
+                }
+            </BottomWrapper>
+        </>
     );
 }

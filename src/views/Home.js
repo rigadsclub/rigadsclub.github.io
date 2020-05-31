@@ -1,29 +1,29 @@
 import React from "react";
-import Projects from "./Projects";
+import Projects from "./elements/Projects";
 import Members from "../components/Members";
-import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import About from "./About";
-import Footer from "./Footer";
-import TopWrapper from "./TopWrapper";
-import BottomWrapper from "./BottomWrapper";
-import JoinUs from "./JoinUs";
+import About from "./elements/About";
+import Footer from "./elements/Footer";
+import TopWrapper from "./elements/TopWrapper";
+import BottomWrapper from "./elements/BottomWrapper";
+import JoinUs from "./elements/JoinUs";
 
-const useStyles = makeStyles(theme => ({
-    root: {
-        textAlign: 'left',
-        color: theme.palette.text.primary,
-    },
-}));
 export default function Home() {
-    const classes = useStyles();
     return (
-        <div className={classes.root}>
+        <>
             <TopWrapper>
                 <Typography variant='h5'>
+                    Our goal
+                </Typography>
+                {
+                    /*
+                                    <Typography variant='h5'>
                     About
                 </Typography>
                 <About />
+                     */
+                }
+
                 <Typography variant='h5'>
                     Recent releases
                 </Typography>
@@ -40,6 +40,6 @@ export default function Home() {
                 <JoinUs />
                 <Footer />
             </BottomWrapper>
-        </div>
+        </>
     );
 }
