@@ -6,8 +6,9 @@ import {Link} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     top: {
+        paddingBottom: 5,
         backgroundColor: "#363636",
-        color: theme.palette.primary.contrastText,
+        color: '#eeeeee',
         /*background: `linear-gradient(217deg, rgba(255,0,0,.8), rgba(255,0,0,0) 70.71%),
                     linear-gradient(127deg, rgba(0,255,0,.8), rgba(0,255,0,0) 70.71%),
                     linear-gradient(336deg, rgba(0,0,255,.8), rgba(0,0,255,0) 70.71%);`,
@@ -22,7 +23,7 @@ const useStyles = makeStyles(theme => ({
         justifyItems: 'center',
         alignItems: 'center',
         padding: '0 1rem',
-        borderBottom: `1px solid ${theme.palette.primary.contrastText}`,
+        borderBottom:  props => props.hideDivider ? 'none' : `1px solid #eeeeee`,
     },
     link: {
         color: 'white',
@@ -39,15 +40,9 @@ const useStyles = makeStyles(theme => ({
         justifyItems: 'center',
         alignItems: 'center',
     },
-    logo: {
-        width: 50,
-        height: 50,
-        paddingRight: 10,
-    },
     logoDark: {
         width: 30,
         height: 30,
-        paddingRight: 12,
         backgroundImage: `url(${process.env.PUBLIC_URL}/images/logo/ds-icon-white.png)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'contain',
@@ -63,8 +58,8 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function TopWrapper({children}) {
-    const classes = useStyles();
+export default function TopWrapper({children, hideDivider}) {
+    const classes = useStyles({hideDivider});
     return (
         <div className={classes.top}>
             <Container color='contrastText'>
@@ -74,7 +69,7 @@ export default function TopWrapper({children}) {
                             <div className={classes.logoDark} />
                         </Link>
                         <Link className={classes.link} to={'/'}>
-                            <Typography variant='h2'>
+                            <Typography variant='h2' style={{marginLeft: '0.5rem'}}>
                                 Riga Data Science Club
                             </Typography>
                         </Link>

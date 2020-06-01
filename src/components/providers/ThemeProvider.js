@@ -20,23 +20,33 @@ let theme = createMuiTheme({
             body1: 'span',
             body2: 'span',
         },
+        body1: {
+            marginBlockStart: '0.43em',
+            marginBlockEnd: '0.43em',
+        },
+        body2: {
+            marginBlockStart: '0.43em',
+            marginBlockEnd: '0.43em',
+        },
         h2: {
             fontSize: '1.5rem',
-            fontWeight: '1200',
+            fontWeight: '1000',
             marginBlockStart: '0.83em',
             marginBlockEnd: '0.83em',
         },
+        h4: {
+            fontSize: '1.35rem',
+            fontWeight: '1000',
+        },
         h5: {
             fontSize: '1.25rem',
-            fontWeight: '1200',
+            fontWeight: '1000',
             marginBlockStart: '0.83em',
             marginBlockEnd: '0.83em',
         },
         h6: {
             fontSize: '1rem',
-            fontWeight: '900',
-            marginBlockStart: '0',
-            marginBlockEnd: '0.23em',
+            fontWeight: '500',
         },
         subtitle1: {
             fontSize: '1rem',
@@ -54,14 +64,14 @@ let theme = createMuiTheme({
         },
         primary: {
             main: '#363636',
-            contrastText: '#EEEEEE',
+            contrastText: '#363636',
         },
         secondary: {
             main: '#363636',
         },
         text: {
             primary: '#363636',
-            secondary: '#EEEEEE',
+            secondary: '#363636',
         },
     },
 });

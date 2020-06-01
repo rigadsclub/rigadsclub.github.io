@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import MemberAvatar from "./MemberAvatar";
+import {Link} from "react-router-dom";
+import ButtonBase from "@material-ui/core/ButtonBase";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -15,7 +17,14 @@ const useStyles = makeStyles((theme) => ({
         flexWrap: 'wrap'
     },
     avatar: {
-        padding: '1rem',
+        width: theme.spacing(12),
+        height: theme.spacing(12),
+        borderRadius: '50%',
+        border: `2px dashed #363636`,
+        display: 'flex',
+        alignItems: 'center',
+        alignContent: 'center',
+        justifyContent: 'center',
     },
 }));
 
@@ -90,13 +99,12 @@ const MEMBERS = [
         image: 'meglitis.jpeg',
         bio: 'Data Engineer@Leadgence'
     },
-    /*
     {
 
         name: 'Maksims Pečeņs',
         image: 'mpecens.jpeg',
         bio: 'Data Scientist at Valsts ieņēmumu dienests'
-    }*/
+    }
 ]
 export default function Members() {
     const classes = useStyles();
@@ -104,11 +112,18 @@ export default function Members() {
         <Grid container spacing={1}>
             {
                 MEMBERS.map(member => (
-                    <Grid item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
-                        <MemberAvatar key={member.name} {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
+                    <Grid key={member.name} item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
+                        <MemberAvatar {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
                     </Grid>
                 ))
             }
+            <Grid key='avatar' item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
+                <MemberAvatar
+                    className={classes.avatar}
+                    name='Join us'
+                    bio='New member@Riga Data Science Club'
+                    image='#'/>
+            </Grid>
         </Grid>
     )
 }

@@ -1,13 +1,14 @@
 import React from "react";
-import Projects from "./Projects";
+import Projects from "../components/elements/Projects";
 import Members from "../components/Members";
 import {makeStyles} from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import About from "./About";
-import Footer from "./Footer";
-import TopWrapper from "./TopWrapper";
-import BottomWrapper from "./BottomWrapper";
+import About from "../components/elements/About";
+import Footer from "../components/elements/Footer";
+import TopWrapper from "../components/elements/TopWrapper";
+import BottomWrapper from "../components/elements/BottomWrapper";
 import JoinUs from "./JoinUs";
+import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -25,7 +26,7 @@ export default function Home() {
                 </Typography>
                 <About />
                 <Typography variant='h5'>
-                    Recent releases
+                    Our projects
                 </Typography>
                 <Projects />
             </TopWrapper>
@@ -34,10 +35,6 @@ export default function Home() {
                     Members
                 </Typography>
                 <Members />
-                <Typography variant='h5'>
-                    Join us
-                </Typography>
-                <JoinUs />
                 <Footer />
             </BottomWrapper>
         </div>

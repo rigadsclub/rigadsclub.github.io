@@ -5,9 +5,9 @@ import Box from '@material-ui/core/Box';
 export default function RigaRealEstateApi() {
     return (
         <Typography component="div" align={"left"}>
-            <h2>HTTP POST endpoint</h2>
-            <p>http://35.189.254.202:8501/v1/models/riga:predict</p>
-            <h2>Request body</h2>
+            <Typography variant='h6'>HTTP POST endpoint</Typography>
+            <Typography>https://api.rigadsclub.com/v1/models/riga:predict</Typography>
+            <Typography variant='h6'>Request body</Typography>
             <Box fontFamily="Monospace" fontSize="h6.fontSize" m={1}>
                 {JSON.stringify({
                     "instances": [
