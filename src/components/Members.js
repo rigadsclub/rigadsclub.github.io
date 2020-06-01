@@ -84,7 +84,19 @@ const MEMBERS = [
         name: 'Audris Ločmelis',
         image: 'aločmelis.jpeg',
         bio: 'AI and Data Science Lead@Deloitte Latvia',
-    }
+    },
+    {
+        name: 'Mairis Eglitis',
+        image: 'meglitis.jpeg',
+        bio: 'Data Engineer@Leadgence'
+    },
+    /*
+    {
+
+        name: 'Maksims Pečeņs',
+        image: 'mpecens.jpeg',
+        bio: 'Data Scientist at Valsts ieņēmumu dienests'
+    }*/
 ]
 export default function Members() {
     const classes = useStyles();

@@ -13,17 +13,9 @@ export default function Home() {
         <>
             <TopWrapper>
                 <Typography variant='h5'>
-                    Our goal
-                </Typography>
-                {
-                    /*
-                                    <Typography variant='h5'>
                     About
                 </Typography>
                 <About />
-                     */
-                }
-
                 <Typography variant='h5'>
                     Recent releases
                 </Typography>

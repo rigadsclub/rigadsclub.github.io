@@ -8,7 +8,7 @@ export default function About() {
                 Riga Data Science Club is a non-profit organization to share ideas, experience and build machine learning projects together.
             </Typography>
             <Typography variant="body1" gutterBottom>
-                Our goal is building a strong data science community in Latvia to drive progress in the machine learning&artificial intelligence field.
+                Our goal is to drive progress in the machine learning&artificial intelligence field.
             </Typography>
         </>
     )
