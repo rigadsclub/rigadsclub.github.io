@@ -7,7 +7,7 @@ import {
 import Home from "./views/Home";
 import ConfigProvider from "./components/providers/ConfigProvider";
 import ThemeProvider from "./components/providers/ThemeProvider";
-import RigaRealEstate from "./views/RigaRealEstate";
+import RigaRealEstateProject from "./views/realestate/RigaRealEstateProject";
 
 function App() {
     return (
@@ -15,11 +15,11 @@ function App() {
             <ConfigProvider>
                 <Router>
                     <Switch>
-                        <Route path="/riga-real-estate">
-                            <RigaRealEstate />
-                        </Route>
                         <Route path="/">
                             <Home />
+                        </Route>
+                        <Route path="/riga">
+                            <RigaRealEstateProject />
                         </Route>
                     </Switch>
                 </Router>

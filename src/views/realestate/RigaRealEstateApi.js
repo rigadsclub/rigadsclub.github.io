@@ -1,17 +1,14 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Box from '@material-ui/core/Box';
 
 export default function RigaRealEstateApi() {
     return (
         <Typography component="div" align={"left"}>
-            <Typography variant='h6'>
-                HTTP POST endpoint
-            </Typography>
-            <code>http://35.189.254.202:8501/v1/models/riga:predict</code>
-            <Typography variant='h6'>
-                Request body
-            </Typography>
-            <code>
+            <h2>HTTP POST endpoint</h2>
+            <p>http://35.189.254.202:8501/v1/models/riga:predict</p>
+            <h2>Request body</h2>
+            <Box fontFamily="Monospace" fontSize="h6.fontSize" m={1}>
                 {JSON.stringify({
                     "instances": [
                         {
@@ -44,7 +41,7 @@ export default function RigaRealEstateApi() {
                         }
                     ]
                 })}
-            </code>
+            </Box>
         </Typography>
     )
 
