@@ -16,6 +16,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 const placesService = { current: null };
+const geoCodingService = { current: null };
 
 /**
  * @param onChange callback will be invoked with {latitude, latitude} once location selected
@@ -27,7 +28,6 @@ export default function EnterLocation({location, setLocation, map}) {
     const classes = useStyles({location, config});
     const [canUseGeolocation, setCanUseGeolocation] = useState(false);
     const [place, setPlace] = useState(null);
-    const [photoReference, setPhotoReference] = useState(null);
 
     React.useEffect(() => {
         if (navigator.geolocation) {
@@ -43,6 +43,43 @@ export default function EnterLocation({location, setLocation, map}) {
         [],
     );
 
+    const fetchReverseGeocoding = React.useMemo(
+        () =>
+            throttle((request, callback) => {
+                geoCodingService.current.geocode(request, callback);
+            }, 200),
+        [],
+    );
+
+    function isPlaceMatchingLocation() {
+        return location && place && location.latitude === place.geometry.location.lat() && location.longitude === place.geometry.location.lng();
+    }
+
+    /*
+    React.useEffect(() => {
+        if (!geoCodingService.current && window.google && map) {
+            geoCodingService.current = new window.google.maps.Geocoder(map);
+        }
+        if (!geoCodingService.current) {
+            return undefined;
+        }
+        if(location && location.latitude && location.longitude && !isPlaceMatchingLocation()) {
+            fetchReverseGeocoding({
+                location: {
+                    lat: parseFloat(location.latitude),
+                    lng: parseFloat(location.longitude),
+                },
+            }, (results, status) => {
+                console.error(results);
+                if (status === 'OK') {
+                    if (results[0]) {
+                        setPlace(results[0]);
+                    }
+                }
+            });
+        }
+    }, [fetchReverseGeocoding, location, isPlaceMatchingLocation]);
+    */
     React.useEffect(() => {
         if (!placesService.current && window.google && map) {
             placesService.current = new window.google.maps.places.PlacesService(map);
@@ -50,7 +87,7 @@ export default function EnterLocation({location, setLocation, map}) {
         if (!placesService.current) {
             return undefined;
         }
-        if(place) {
+        if(place && !isPlaceMatchingLocation()) {
             fetchPlaceDetails({placeId: place.place_id, fields: ['geometry']}, (place, status) => {
                 if (status == window.google.maps.places.PlacesServiceStatus.OK) {
                     const latitude = place.geometry.location.lat();
@@ -59,7 +96,7 @@ export default function EnterLocation({location, setLocation, map}) {
                 }
             });
         }
-    }, [map, place, fetchPlaceDetails]);
+    }, [map, place, fetchPlaceDetails, isPlaceMatchingLocation]);
 
     function getGeolocation() {
         if (navigator.geolocation) {

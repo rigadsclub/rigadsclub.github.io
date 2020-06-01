@@ -12,10 +12,18 @@ import Footer from "../components/elements/Footer";
 const useStyles = makeStyles(() => ({
     root: {
         display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
         flexDirection: 'row',
         flexWrap: 'no-wrap',
         paddingTop: 10,
         paddingBottom: 10,
+    },
+    wewantyou: {
+
+    },
+    form: {
+        textAlign: 'center',
     },
     description: {
         paddingLeft: 15,
@@ -34,15 +42,17 @@ export default function JoinUs() {
             </TopWrapper>
             <BottomWrapper>
                 <div className={classes.root}>
-                    <div>
+                    <Box component="div" display={{ xs: 'none', sm: 'none', md: 'block'}}>
                         <ImageFrame>
                             <ImageSam />
                         </ImageFrame>
+                    </Box>
+                    <div className={classes.form}>
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLScGjdoqjbx7j0wkJ9oFXRSCSQsVysEFUhhBFo3WuoQ-FI4bXQ/viewform?embedded=true"
+                            width="640" height="1150" frameBorder="0" marginHeight="0" marginWidth="0">Loading…
+                        </iframe>
                     </div>
-                    <iframe
-                        src="https://docs.google.com/forms/d/e/1FAIpQLScGjdoqjbx7j0wkJ9oFXRSCSQsVysEFUhhBFo3WuoQ-FI4bXQ/viewform?embedded=true"
-                        width="640" height="1150" frameBorder="0" marginHeight="0" marginWidth="0">Loading…
-                    </iframe>
                 </div>
             </BottomWrapper>
             <Footer />

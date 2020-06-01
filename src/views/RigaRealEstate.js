@@ -52,7 +52,7 @@ export default function RigaRealEstate() {
                             </Typography>
                         </Box>
                         <Box m={0.25} className={classes.details}>
-                            <Typography variant='h5'>
+                            <Typography variant='h5' style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>
                                 The problem
                             </Typography>
                             <Typography variant='body2'>
@@ -61,7 +61,7 @@ export default function RigaRealEstate() {
                                 Real estate valuation is often a challenging task, as it involves analysis of multiple properties
                                 such as location, square footage, number of rooms, condition, age of the building.
                             </Typography>
-                            <Typography variant='h5'>
+                            <Typography variant='h5' style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>
                                 Solution
                             </Typography>
                             <Typography variant='body2'>

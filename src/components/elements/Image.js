@@ -1,12 +1,14 @@
 import React from "react";
 import {makeStyles} from "@material-ui/core/styles";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     image: {
-        width: 300,
-        height: 300,
+        width: '20rem',
+        height: '20rem',
+        maxWidth: '300px',
+        maxHeight: '300px',
     },
-});
+}));
 
 export default function Image({children}) {
     const classes = useStyles();

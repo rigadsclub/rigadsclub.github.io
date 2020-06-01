@@ -69,7 +69,7 @@ export default function TopWrapper({children, hideDivider}) {
                             <div className={classes.logoDark} />
                         </Link>
                         <Link className={classes.link} to={'/'}>
-                            <Typography variant='h2' style={{marginLeft: '0.5rem'}}>
+                            <Typography variant='h2' style={{marginLeft: '0.8rem'}}>
                                 Riga Data Science Club
                             </Typography>
                         </Link>

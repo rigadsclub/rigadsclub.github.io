@@ -48,12 +48,12 @@ export default function TrafficSignRecognition() {
                             </Typography>
                         </Box>
                         <Box m={0.25} className={classes.details}>
-                            <Typography variant='h5'>
+                            <Typography variant='h5' style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>
                                 The problem
                             </Typography>
                             <Typography variant='body2'>
                             </Typography>
-                            <Typography variant='h5'>
+                            <Typography variant='h5' style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>
                                 Solution
                             </Typography>
                             <Typography variant='body2'>

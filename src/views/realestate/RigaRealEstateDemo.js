@@ -127,8 +127,6 @@ export default function RigaRealEstateDemo() {
         }
     }, [area, floor, rooms, totalFloors, condition, houseType, houseSeria, district, location,
         setPredictions]);
-
-    const photoReference = '';
     return (
         <div className={classes.root}>
             <div className={classes.header}>

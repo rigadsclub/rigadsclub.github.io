@@ -4,9 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     project: {
-        minWidth: '300px',
-        maxWidth: '300px',
-        padding: '13px',
+        padding: '0.8rem',
     },
 }));
 
