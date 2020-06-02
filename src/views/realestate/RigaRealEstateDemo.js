@@ -102,11 +102,11 @@ export default function RigaRealEstateDemo() {
 
     useEffect(() => {
         if(allFieldsAreComplete()) {
+            setError(null);
             setLoading(true);
             setPredictions(null);
             fetch('https://api.rigadsclub.com/v1/models/riga:predict', {
                     method: 'POST',
-                    mode: 'same-origin',
                     body: JSON.stringify({
                         instances: [
                             createInputInstance('For sale'),
@@ -117,11 +117,10 @@ export default function RigaRealEstateDemo() {
             )
                 .then(res => {
                     console.error(res);
-                    res.json();
+                    return res.json();
                 })
                 .then(result => {
                     setPredictions(result.predictions);
-                    setError(null);
                     setLoading(false);
                 })
                 .catch(error => {
