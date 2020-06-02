@@ -7,8 +7,6 @@ import About from "../components/elements/About";
 import Footer from "../components/elements/Footer";
 import TopWrapper from "../components/elements/TopWrapper";
 import BottomWrapper from "../components/elements/BottomWrapper";
-import JoinUs from "./JoinUs";
-import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
     root: {

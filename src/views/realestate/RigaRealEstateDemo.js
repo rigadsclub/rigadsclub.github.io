@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import TextField from '@material-ui/core/TextField';
-import {makeStyles, withStyles} from "@material-ui/core/styles";
+import {makeStyles} from "@material-ui/core/styles";
 import {HouseSeriesSelect} from "../../components/realestate/HouseSeriesSelect";
 import {HouseTypeSelect} from "../../components/realestate/HouseTypeSelect";
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -66,13 +66,12 @@ const formatter = new Intl.NumberFormat('en-US', {
 export default function RigaRealEstateDemo() {
     const classes = useStyles();
     const [map, setMap] = useState(null);
-    const [place, setPlace] = useState(2);
     const [location, setLocation] = useState(null);
     const [area, setArea] = useState(50);
     const [floor, setFloor] = useState(5);
     const [rooms, setRooms] = useState(2);
     const [totalFloors, setTotalFloors] = useState(9);
-    const [condition, setCondition] = useState('All, amenities');
+    const [condition] = useState('All, amenities');
     const [houseType, setHouseType] = useState('Panel');
     const [houseSeria, setHouseSeria] = useState('119.');
     const [district, setDistrict] = useState('Purvciems');
@@ -125,7 +124,16 @@ export default function RigaRealEstateDemo() {
                     setLoading(false);
                 });
         }
-    }, [area, floor, rooms, totalFloors, condition, houseType, houseSeria, district, location,
+    }, [
+        area,
+        floor,
+        rooms,
+        totalFloors,
+        condition,
+        houseType,
+        houseSeria,
+        district,
+        location,
         setPredictions]);
     return (
         <div className={classes.root}>
@@ -134,14 +142,14 @@ export default function RigaRealEstateDemo() {
                     Complete few fields below to get rent and sale price estimation for any property located in Riga, Latvia:
                 </Typography>
             </div>
-            <Grid container spacing={1}>
-                <Grid item xl={3} lg={3} md={4} sm={6} xs={12} spacing={3}>
+            <Grid container>
+                <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
                     <Step icon={<LocationOnIcon/>} title={'Real estate location'} complete={location}>
                         <EnterLocation map={map} location={location} setLocation={setLocation} />
                     </Step>
                 </Grid>
-                <Grid item xl={3} lg={3} md={4} sm={6} xs={12} spacing={3}>
-                    {place && <Step icon={<HomeIcon/>} title={"House properties"} complete={houseSeria && houseType && totalFloors}>
+                <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
+                    <Step icon={<HomeIcon/>} title={"House properties"} complete={houseSeria && houseType && totalFloors}>
                         <HouseSeriesSelect value={houseSeria} onChange={event => setHouseSeria(event.target.value)} />
                         <HouseTypeSelect value={houseType} onChange={event => setHouseType(event.target.value)} />
                         <RealEstateFormControl>
@@ -154,11 +162,10 @@ export default function RigaRealEstateDemo() {
                                 onChange={event => setTotalFloors(parseInt(event.target.value))}
                             />
                         </RealEstateFormControl>
-                    </Step>}
+                    </Step>
                 </Grid>
-
-                <Grid item xl={3} lg={3} md={4} sm={6} xs={12} spacing={3}>
-                    {place && <Step icon={<FormatLineSpacingIcon />} title={"Flat properties"} complete={floor && area && rooms}>
+                <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
+                    <Step icon={<FormatLineSpacingIcon />} title={"Flat properties"} complete={floor && area && rooms}>
                         <RealEstateFormControl variant='outlined'>
                             <TextField
                                 className={classes.textField}
@@ -189,10 +196,10 @@ export default function RigaRealEstateDemo() {
                                 onChange={event => setRooms(parseInt(event.target.value))}
                             />
                         </RealEstateFormControl>
-                    </Step>}
+                    </Step>
                 </Grid>
 
-                <Grid item xl={3} lg={3} md={4} sm={6} xs={12} spacing={3}>
+                <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
                     <Step icon={<EuroSharpIcon />} title={"Prediction"} hideCompleteIcon>
                         {loading && <CircularProgress />}
                         {predictions && <div className={classes.predictions}>

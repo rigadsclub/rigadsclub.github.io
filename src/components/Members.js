@@ -3,8 +3,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import MemberAvatar from "./MemberAvatar";
 import members from '../data/members.json';
-import {Link} from "react-router-dom";
-import ButtonBase from "@material-ui/core/ButtonBase";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -36,20 +34,20 @@ const useStyles = makeStyles((theme) => ({
 export default function Members() {
     const classes = useStyles();
     return (
-        <Grid container spacing={1}>
+        <Grid container>
             {
                 members.list.map(member => (
-                    <Grid key={member.name} item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
+                    <Grid key={member.name} item xl={2} lg={3} md={4} sm={6} xs={12}>
                         <MemberAvatar {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
                     </Grid>
                 ))
             }
-            <Grid key='avatar' item xl={2} lg={3} md={4} sm={6} xs={12} spacing={3}>
+            <Grid key='avatar' item xl={2} lg={3} md={4} sm={6} xs={12}>
                 <a className={classes.joinUs} href='/join-us'>
                     <MemberAvatar
                         className={classes.avatar}
                         name='Join us'
-                        bio='New member@Riga Data Science Club'
+                        bio='You@Riga Data Science Club'
                         image='#'/>
                 </a>
             </Grid>

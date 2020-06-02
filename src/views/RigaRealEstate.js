@@ -7,8 +7,6 @@ import ImageRiga from "../components/elements/images/ImageRiga";
 import ImageFrame from "../components/elements/ImageFrame";
 import {makeStyles} from "@material-ui/core/styles";
 import RigaRealEstateDemo from "./realestate/RigaRealEstateDemo";
-import RigaRealEstateApi from "./realestate/RigaRealEstateApi";
-import RigaRealEstateHow from "./realestate/RigaRealEstateHow";
 import Footer from "../components/elements/Footer";
 
 const useStyles = makeStyles({
@@ -53,7 +51,7 @@ export default function RigaRealEstate() {
                         </Box>
                         <Box m={0.25} className={classes.details}>
                             <Typography variant='h5' style={{marginTop: '0.5rem', marginBottom: '0.5rem'}}>
-                                The problem
+                                Problem
                             </Typography>
                             <Typography variant='body2'>
                                 Estimating the value of real estate is necessary for a variety of endeavors, including financing, sales listing,

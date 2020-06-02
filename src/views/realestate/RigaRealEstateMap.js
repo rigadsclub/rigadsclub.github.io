@@ -1,4 +1,4 @@
-import React, {createRef, useEffect, useRef, useState} from 'react';
+import React, {createRef, useRef} from 'react';
 import {makeStyles} from "@material-ui/core/styles";
 import {useConfig} from "../../components/providers/ConfigProvider";
 
@@ -25,7 +25,11 @@ export default function RigaRealEstateMap({map, setMap, location, setLocation}) 
                 mapTypeControl: false,
             }));
         }
-    }, [setMap, config.RIGA_CENTER_LATITUDE, config.RIGA_CENTER_LONGITUDE]);
+    }, [
+        setMap,
+        config.RIGA_CENTER_LATITUDE,
+        config.RIGA_CENTER_LONGITUDE,
+    ]);
 
     function clearMarkers(markers) {
         for (let m of markers) {
@@ -48,7 +52,7 @@ export default function RigaRealEstateMap({map, setMap, location, setLocation}) 
             });
             markersRef.current.push(marker);
         }
-    }, [location, setLocation]);
+    }, [map, markersRef, location, setLocation]);
     return (
         <div ref={googleMapRef} className={classes.map}/>
     );

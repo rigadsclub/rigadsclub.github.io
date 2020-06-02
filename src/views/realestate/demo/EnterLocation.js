@@ -1,5 +1,6 @@
 import GooglePlacesAutocomplete from "../../../components/realestate/GooglePlacesAutocomplete";
 import Button from '@material-ui/core/Button';
+import Typography from '@material-ui/core/Typography';
 import React, {useState} from "react";
 import {makeStyles} from "@material-ui/core/styles";
 import {useConfig} from "../../../components/providers/ConfigProvider";
@@ -16,7 +17,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 const placesService = { current: null };
+/*
 const geoCodingService = { current: null };
+*/
 
 /**
  * @param onChange callback will be invoked with {latitude, latitude} once location selected
@@ -28,6 +31,7 @@ export default function EnterLocation({location, setLocation, map}) {
     const classes = useStyles({location, config});
     const [canUseGeolocation, setCanUseGeolocation] = useState(false);
     const [place, setPlace] = useState(null);
+    const [photo, setPhoto] = useState(null);
 
     React.useEffect(() => {
         if (navigator.geolocation) {
@@ -43,6 +47,7 @@ export default function EnterLocation({location, setLocation, map}) {
         [],
     );
 
+    /*
     const fetchReverseGeocoding = React.useMemo(
         () =>
             throttle((request, callback) => {
@@ -55,7 +60,6 @@ export default function EnterLocation({location, setLocation, map}) {
         return location && place && location.latitude === place.geometry.location.lat() && location.longitude === place.geometry.location.lng();
     }
 
-    /*
     React.useEffect(() => {
         if (!geoCodingService.current && window.google && map) {
             geoCodingService.current = new window.google.maps.Geocoder(map);
@@ -87,16 +91,26 @@ export default function EnterLocation({location, setLocation, map}) {
         if (!placesService.current) {
             return undefined;
         }
-        if(place && !isPlaceMatchingLocation()) {
-            fetchPlaceDetails({placeId: place.place_id, fields: ['geometry']}, (place, status) => {
-                if (status == window.google.maps.places.PlacesServiceStatus.OK) {
+        if(place) {
+            fetchPlaceDetails({
+                placeId: place.place_id,
+                fields: ['geometry', 'photos', 'vicinity', 'address_component']
+            }, (place, status) => {
+                if (status === window.google.maps.places.PlacesServiceStatus.OK) {
+                    console.error(place);
                     const latitude = place.geometry.location.lat();
                     const longitude = place.geometry.location.lng();
+                    const district = place.address_components
+                    if(place.photos && place.photos.length > 0) {
+                        setPhoto(place.photos[0]);
+                    } else {
+                        setPhoto(null);
+                    }
                     setLocation({latitude, longitude});
                 }
             });
         }
-    }, [map, place, fetchPlaceDetails, isPlaceMatchingLocation]);
+    }, [map, place, fetchPlaceDetails, setLocation]);
 
     function getGeolocation() {
         if (navigator.geolocation) {
@@ -128,7 +142,8 @@ export default function EnterLocation({location, setLocation, map}) {
             fullWidth
             onClick={getGeolocation}>Use device location
         </Button></>}
-        {(location && location.latitude && location.longitude)&&<p>{formatCoordinates(location.latitude)}° N, {formatCoordinates(location.longitude)}° E</p>}
+        {(location && location.latitude && location.longitude)&&<Typography variant='body1'>{formatCoordinates(location.latitude)}° N, {formatCoordinates(location.longitude)}° E</Typography>}
+        {photo && <img alt='property' src={photo.getUrl()} />}
     </div>)
 
 }

@@ -4,7 +4,7 @@ import Box from "@material-ui/core/Box";
 
 export default function Footer() {
     return (
-        <Box m={2}>
+        <Box component='div' m={2}>
             <Typography variant="caption" display="block" gutterBottom align="center">
                 Riga Data Science Club, 2020
             </Typography>

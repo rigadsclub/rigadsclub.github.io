@@ -9,18 +9,6 @@ import parse from 'autosuggest-highlight/parse';
 import throttle from 'lodash/throttle';
 import {useConfig} from "../providers/ConfigProvider";
 
-function loadScript(src, position, id) {
-    if (!position) {
-        return;
-    }
-
-    const script = document.createElement('script');
-    script.setAttribute('async', '');
-    script.setAttribute('id', id);
-    script.src = src;
-    position.appendChild(script);
-}
-
 const autocompleteService = { current: null };
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +23,6 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
     const classes = useStyles();
     const [inputValue, setInputValue] = React.useState('');
     const [options, setOptions] = React.useState([]);
-    const loaded = React.useRef(false);
     const fetchPlacePredictions = React.useMemo(
         () =>
             throttle((request, callback) => {
@@ -59,7 +46,13 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
             return undefined;
         }
         const riga = new window.google.maps.Circle({ center: RIGA, radius: 12000 });
-        fetchPlacePredictions({ input: inputValue, bounds: riga.getBounds(), strictbounds: true, types: ['address'], language: 'lv'}, (results) => {
+        fetchPlacePredictions({
+            input: inputValue,
+            bounds: riga.getBounds(),
+            strictbounds: true,
+            types: ['address'],
+            language: 'lv'
+        }, results => {
             if (active) {
                 let newOptions = [];
 
@@ -78,7 +71,13 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
         return () => {
             active = false;
         };
-    }, [value, inputValue, fetchPlacePredictions]);
+    }, [
+        value,
+        inputValue,
+        fetchPlacePredictions,
+        config.RIGA_CENTER_LATITUDE,
+        config.RIGA_CENTER_LONGITUDE,
+    ]);
 
     return (
         <Autocomplete
