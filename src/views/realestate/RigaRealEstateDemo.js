@@ -77,6 +77,7 @@ export default function RigaRealEstateDemo() {
     const [district, setDistrict] = useState('Purvciems');
     const [loading, setLoading] = useState(false);
     const [predictions, setPredictions] = useState(null);
+    const [error, setError] = useState(null);
 
     const allFieldsAreComplete = () => {
         return area && floor && rooms && totalFloors
@@ -105,7 +106,7 @@ export default function RigaRealEstateDemo() {
             setPredictions(null);
             fetch('https://api.rigadsclub.com/v1/models/riga:predict', {
                     method: 'POST',
-                    mode: 'no-cors',
+                    mode: 'same-origin',
                     body: JSON.stringify({
                         instances: [
                             createInputInstance('For sale'),
@@ -114,13 +115,17 @@ export default function RigaRealEstateDemo() {
                     }),
                 }
             )
-                .then(res => res.json())
+                .then(res => {
+                    console.error(res);
+                    res.json();
+                })
                 .then(result => {
                     setPredictions(result.predictions);
+                    setError(null);
                     setLoading(false);
                 })
                 .catch(error => {
-                    console.log(error);
+                    setError(error.message);
                     setLoading(false);
                 });
         }
@@ -202,6 +207,7 @@ export default function RigaRealEstateDemo() {
                 <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
                     <Step icon={<EuroSharpIcon />} title={"Prediction"} hideCompleteIcon>
                         {loading && <CircularProgress />}
+                        {error && <p>{error}</p>}
                         {predictions && <div className={classes.predictions}>
                             <div className={classes.prediction}>
                                 For sale:
