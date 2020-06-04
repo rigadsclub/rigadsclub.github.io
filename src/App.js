@@ -15,15 +15,15 @@ function App() {
     return (
         <ThemeProvider>
             <ConfigProvider>
-                <Router>
+                <Router basename={process.env.PUBLIC_URL}>
                     <Switch>
-                        <Route path={`${process.env.PUBLIC_URL}/projects/traffic-sign-recognition`}>
+                        <Route path="/projects/traffic-sign-recognition">
                             <TrafficSignRecognition />
                         </Route>
-                        <Route path={`${process.env.PUBLIC_URL}/projects/riga-real-estate`}>
+                        <Route path="/projects/riga-real-estate">
                             <RigaRealEstate />
                         </Route>
-                        <Route path={`${process.env.PUBLIC_URL}/join-us`}>
+                        <Route path="/join-us">
                             <JoinUs />
                         </Route>
                         <Route path="/">
