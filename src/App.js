@@ -17,13 +17,13 @@ function App() {
             <ConfigProvider>
                 <Router>
                     <Switch>
-                        <Route path="/projects/traffic-sign-recognition">
+                        <Route path={`${process.env.PUBLIC_URL}/projects/traffic-sign-recognition`}>
                             <TrafficSignRecognition />
                         </Route>
-                        <Route path="/projects/riga-real-estate">
+                        <Route path={`${process.env.PUBLIC_URL}/projects/riga-real-estate`}>
                             <RigaRealEstate />
                         </Route>
-                        <Route path="/join-us">
+                        <Route path={`${process.env.PUBLIC_URL}/join-us`}>
                             <JoinUs />
                         </Route>
                         <Route path="/">

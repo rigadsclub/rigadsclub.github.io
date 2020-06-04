@@ -40,12 +40,12 @@ export default function GooglePlacesAutocomplete({value, setValue}) {
         if (!autocompleteService.current) {
             return undefined;
         }
-        const RIGA = new window.google.maps.LatLng(config.RIGA_CENTER_LATITUDE, config.RIGA_CENTER_LONGITUDE);
+        const rigaCenter = new window.google.maps.LatLng(config.RIGA_CENTER_LATITUDE, config.RIGA_CENTER_LONGITUDE);
         if (inputValue === '') {
             setOptions(value ? [value] : []);
             return undefined;
         }
-        const riga = new window.google.maps.Circle({ center: RIGA, radius: 12000 });
+        const riga = new window.google.maps.Circle({ center: rigaCenter, radius: 12000 });
         fetchPlacePredictions({
             input: inputValue,
             bounds: riga.getBounds(),

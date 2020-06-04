@@ -116,7 +116,6 @@ export default function RigaRealEstateDemo() {
                 }
             )
                 .then(res => {
-                    console.error(res);
                     return res.json();
                 })
                 .then(result => {
