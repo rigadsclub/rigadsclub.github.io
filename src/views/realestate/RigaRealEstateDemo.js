@@ -146,7 +146,7 @@ export default function RigaRealEstateDemo() {
                 </Typography>
             </div>
             <Grid container>
-                <Grid item xl={3} lg={3} md={4} sm={6} xs={12}>
+                <Grid item xl={3} lg={3} md={4} sm={6} xs={12} p={1}>
                     <Step icon={<LocationOnIcon/>} title={'Real estate location'} complete={location}>
                         <EnterLocation map={map} location={location} setLocation={setLocation} />
                     </Step>

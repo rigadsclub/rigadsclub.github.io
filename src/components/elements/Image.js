@@ -5,6 +5,8 @@ const useStyles = makeStyles(theme => ({
     image: {
         width: '20rem',
         height: '20rem',
+        minWidth: '100px',
+        minHeight: '100px',
         maxWidth: '300px',
         maxHeight: '300px',
     },

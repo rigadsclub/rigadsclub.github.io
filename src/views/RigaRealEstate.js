@@ -10,16 +10,6 @@ import RigaRealEstateDemo from "./realestate/RigaRealEstateDemo";
 import Footer from "../components/elements/Footer";
 
 const useStyles = makeStyles({
-    root: {
-        display: 'flex',
-        flexDirection: 'row',
-        flexWrap: 'no-wrap',
-        paddingTop: '1rem',
-        paddingBottom: '1rem',
-    },
-    description: {
-        paddingLeft: 15,
-    },
     details: {
         paddingTop: 5,
         maxWidth: '600px',
@@ -32,13 +22,13 @@ export default function RigaRealEstate() {
     return (
         <>
             <TopWrapper>
-                <div className={classes.root}>
-                    <div>
+                <Box display="flex" flexDirection="row" pt='1rem' pb='1rem'>
+                    <Box component="div" display={{ xs: 'none', sm: 'none', md: 'block'}} pr='1rem'>
                         <ImageFrame>
                             <ImageRiga />
                         </ImageFrame>
-                    </div>
-                    <div className={classes.description}>
+                    </Box>
+                    <Box>
                         <Box m={0.25}>
                             <Typography variant='h4'>
                                 Riga Real Estate Price Prediction
@@ -68,8 +58,8 @@ export default function RigaRealEstate() {
                                 to estimate the value of any other real estate property.
                             </Typography>
                         </Box>
-                    </div>
-                </div>
+                    </Box>
+                </Box>
             </TopWrapper>
             <BottomWrapper>
                 <Typography variant='h5'>

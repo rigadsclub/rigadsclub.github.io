@@ -134,14 +134,14 @@ export default function EnterLocation({location, setLocation, map}) {
             setValue={place => {
                 setPlace(place);
             }} />
-        {canUseGeolocation && <><span style={{margin: '2px 0', fontSize: '12px'}}>or</span><Button
+        {canUseGeolocation && <Button
             className={classes.locationButton}
             variant="contained"
             color="default"
             size={"large"}
             fullWidth
-            onClick={getGeolocation}>Use device location
-        </Button></>}
+            onClick={getGeolocation}>or use device location
+        </Button>}
         {(location && location.latitude && location.longitude)&&<Typography variant='body1'>{formatCoordinates(location.latitude)}° N, {formatCoordinates(location.longitude)}° E</Typography>}
         {photo && <img alt='property' src={photo.getUrl()} />}
     </div>)
