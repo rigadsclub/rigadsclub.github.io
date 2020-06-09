@@ -15,7 +15,6 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'row',
         paddingBottom: 10,
-        overflow: 'scroll',
     },
     button: {
         marginRight: 15,
@@ -38,8 +37,8 @@ const useStyles = makeStyles(theme => ({
 export default function Projects() {
     const classes = useStyles();
     return (
-        <div>
-            <div className={classes.root}>
+        <Box component='div' pb='0.5rem'>
+            <Box component='div' display='flex' overflow='auto'>
                 <ButtonBase component={Link} to={'/projects/riga-real-estate'} className={classes.button}>
                     <ImageFrame>
                         <Typography variant='h6' color={'textPrimary'}>
@@ -64,10 +63,10 @@ export default function Projects() {
                         <Image />
                     </Paper>
                 </ButtonBase>
-            </div>
+            </Box>
             <Box component="div" display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none'}}>
                 <Typography variant='subtitle1' align='right'>Swipe to see more ></Typography>
             </Box>
-        </div>
+        </Box>
     );
 }
