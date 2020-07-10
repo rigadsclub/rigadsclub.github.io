@@ -61,6 +61,12 @@
       "bio": "Data Scientist"
     },
     {
+
+      "name": "Arturs Valujevs",
+      "image": "avalujevs.png",
+      "bio": "Data Scientist"
+    },
+    {
       "name": "Audris Ločmelis",
       "image": "aločmelis.jpeg",
       "bio": "AI and Data Science Lead@Deloitte Latvia"
@@ -75,6 +81,30 @@
       "name": "Maksims Pečeņs",
       "image": "mpecens.jpeg",
       "bio": "Data Scientist at Valsts ieņēmumu dienests"
+    },
+    {
+
+      "name": "Ecaterina Vidrașcu",
+      "image": "evidrascu.jpeg",
+      "bio": "Alexa Skill Developer"
+    },
+    {
+
+      "name": "Alvaro Ager",
+      "image": "aager.jpeg",
+      "bio": "Head of Business Intelligence at Sonarworks"
+    },
+    {
+
+      "name": "Nikita Strezhnev",
+      "image": "nstrezhnev.jpeg",
+      "bio": "Data Analytics Manager at Rimi Baltic Group"
+    },
+    {
+
+      "name": "Raivis Dejus",
+      "image": "rdejus.jpeg",
+      "bio": "Developer"
     }
   ]
 }
