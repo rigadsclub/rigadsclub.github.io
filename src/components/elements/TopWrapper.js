@@ -3,6 +3,9 @@ import {makeStyles} from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import {Link} from "react-router-dom";
+import {
+    LinkedinFollowCompany,
+} from 'react-social-plugins';
 
 const useStyles = makeStyles(theme => ({
     top: {
@@ -40,6 +43,15 @@ const useStyles = makeStyles(theme => ({
         justifyItems: 'center',
         alignItems: 'center',
     },
+    social: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        alignContent: 'center',
+        justifyItems: 'center',
+        alignItems: 'center',
+    },
     logoDark: {
         width: 30,
         height: 30,
@@ -73,6 +85,14 @@ export default function TopWrapper({children, hideDivider}) {
                                 Riga Data Science Club
                             </Typography>
                         </Link>
+                    </div>
+                    <div className={classes.social}>
+                        <Typography variant='h6' style={{marginRight: '0.8rem'}}>Follow us on LinkedIn:</Typography>
+                        <LinkedinFollowCompany
+                            companyId={53413934}
+                            counter="bottom"
+                            lang="en_US"
+                        />
                     </div>
                 </div>
                 {children}
