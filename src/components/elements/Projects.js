@@ -7,7 +7,6 @@ import Typography from "@material-ui/core/Typography";
 import ImageRiga from "./images/ImageRiga";
 import ImageFrame from "./ImageFrame";
 import Image from "./Image";
-import ImageTrafficSign from "./images/ImageTrafficSign";
 import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
@@ -45,14 +44,6 @@ export default function Projects() {
                             Riga Real Estate Price Prediction
                         </Typography>
                         <ImageRiga />
-                    </ImageFrame>
-                </ButtonBase>
-                <ButtonBase component={Link} to={'/projects/traffic-sign-recognition'} className={classes.button}>
-                    <ImageFrame>
-                        <Typography variant='h6' color={'textPrimary'}>
-                            Traffic Sign Recognition
-                        </Typography>
-                        <ImageTrafficSign />
                     </ImageFrame>
                 </ButtonBase>
                 <ButtonBase component={Link} to={'/join-us'} className={classes.button}>

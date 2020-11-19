@@ -6,7 +6,7 @@ const useStyles = makeStyles({
     trafficSign: {
         width: '100%',
         height: '100%',
-        backgroundImage: `url(${process.env.PUBLIC_URL}/images/trafficsign/5t.jpg)`,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/trafficsign/20200704_214930_2.jpg)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         backgroundPosition: 'center',

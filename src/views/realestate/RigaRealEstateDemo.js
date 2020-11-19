@@ -105,7 +105,7 @@ export default function RigaRealEstateDemo() {
             setError(null);
             setLoading(true);
             setPredictions(null);
-            fetch('https://api.rigadsclub.com/v1/models/riga:predict', {
+            fetch('http://localhost:8501/v1/models/rre:predict', {
                     method: 'POST',
                     body: JSON.stringify({
                         instances: [

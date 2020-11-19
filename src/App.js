@@ -9,7 +9,6 @@ import ConfigProvider from "./components/providers/ConfigProvider";
 import ThemeProvider from "./components/providers/ThemeProvider";
 import RigaRealEstate from "./views/RigaRealEstate";
 import JoinUs from "./views/JoinUs";
-import TrafficSignRecognition from "./views/TrafficSignRecognition";
 
 function App() {
     return (
@@ -17,9 +16,6 @@ function App() {
             <ConfigProvider>
                 <Router basename={process.env.PUBLIC_URL}>
                     <Switch>
-                        <Route path="/projects/traffic-sign-recognition">
-                            <TrafficSignRecognition />
-                        </Route>
                         <Route path="/projects/riga-real-estate">
                             <RigaRealEstate />
                         </Route>
