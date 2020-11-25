@@ -23,9 +23,10 @@ const useStyles = makeStyles(theme => ({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignContent: 'center',
+        flexWrap: "wrap",
         justifyItems: 'center',
         alignItems: 'center',
-        padding: '0 1rem',
+        padding: theme.spacing(1),
         borderBottom:  props => props.hideDivider ? 'none' : `1px solid #eeeeee`,
     },
     link: {
@@ -35,7 +36,6 @@ const useStyles = makeStyles(theme => ({
         margin: 0,
     },
     identity: {
-        width: '100%',
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'flex-start',
@@ -44,10 +44,8 @@ const useStyles = makeStyles(theme => ({
         alignItems: 'center',
     },
     social: {
-        width: '100%',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'flex-end',
         alignContent: 'center',
         justifyItems: 'center',
         alignItems: 'center',
@@ -87,10 +85,9 @@ export default function TopWrapper({children, hideDivider}) {
                         </Link>
                     </div>
                     <div className={classes.social}>
-                        <Typography variant='h6' style={{marginRight: '0.8rem'}}>Follow us on LinkedIn:</Typography>
                         <LinkedinFollowCompany
                             companyId={53413934}
-                            counter="bottom"
+                            counter="none"
                             lang="en_US"
                         />
                     </div>

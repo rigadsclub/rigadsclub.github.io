@@ -13,6 +13,7 @@ import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 import Avatar from "@material-ui/core/Avatar";
 import SvgKaggleMark from "../../svg/SvgKaggleMark";
 import SvgLinkedinMark from "../../svg/SvgLinkedinMark";
+import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles(theme => ({
     details: {
@@ -86,7 +87,7 @@ export default function GFootball() {
                                 Meetup #18: Reinforcement Learning with Google Football
                                 <Typography variant="subtitle1">December 3rd, 12:00 PM CET in
                                     <a className={classes.link} style={{marginLeft: 5}} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
-                                        Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
+                                        Zoom<span style={{marginLeft: 2}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-6px'}}/></span>
                                     </a>
                                 </Typography>
                             </Typography>
@@ -130,38 +131,42 @@ export default function GFootball() {
                 <Typography variant='h5'>
                     Speakers
                 </Typography>
-                <Box display="flex" justifyContent="center" width="100%">
-                    <Box display="flex" m={3}>
-                        <Avatar alt={'tom'} src={`${process.env.PUBLIC_URL}/images/events/18/tom.jpg`} className={classes.avatar} />
-                        <Box ml={2} display="flex" flexDirection="column" justifyContent="center">
-                            <Typography variant="h4">Tom Van de Wiele</Typography>
-                            <Typography variant="subtitle1">Kaggle Competitions Master<br/>Data Scientist at Intelecy</Typography>
-                            <Box display="flex">
-                                <a href="https://www.linkedin.com/in/tom-van-de-wiele-a411a8136/" target="_blank"><div className={classes.icon}>
-                                    <SvgLinkedinMark />
-                                </div></a>
-                                <a href="https://www.kaggle.com/tvdwiele" target="_blank"><div className={classes.iconKaggle}>
-                                    <SvgKaggleMark />
-                                </div></a>
+                <Grid container>
+                    <Grid item xl={4} lg={4} md={5} sm={8} xs={12}>
+                        <Box display="flex" width="100%" justifyContent="flex-start" mb={3}>
+                            <Avatar alt={'tom'} src={`${process.env.PUBLIC_URL}/images/events/18/tom.jpg`} className={classes.avatar} />
+                            <Box ml={2} display="flex" flexDirection="column" justifyContent="center">
+                                <Typography variant="h4">Tom Van de Wiele</Typography>
+                                <Typography variant="subtitle1">Kaggle Competitions Master<br/>Data Scientist at Intelecy</Typography>
+                                <Box display="flex">
+                                    <a href="https://www.linkedin.com/in/tom-van-de-wiele-a411a8136/" target="_blank"><div className={classes.icon}>
+                                        <SvgLinkedinMark />
+                                    </div></a>
+                                    <a href="https://www.kaggle.com/tvdwiele" target="_blank"><div className={classes.iconKaggle}>
+                                        <SvgKaggleMark />
+                                    </div></a>
+                                </Box>
                             </Box>
                         </Box>
-                    </Box>
-                    <Box display="flex" m={3}>
-                        <Avatar alt={'tom'} src={`${process.env.PUBLIC_URL}/images/events/18/dmitry.jpg`} className={classes.avatar} />
-                        <Box ml={2} display="flex" flexDirection="column" justifyContent="center">
-                            <Typography variant="h4">Dmitry Gordeev</Typography>
-                            <Typography variant="subtitle1">Kaggle Competitions Grandmaster<br/>Senior Data Scientist at H2O.ai</Typography>
-                            <Box display="flex">
-                                <a href="https://www.linkedin.com/in/dmitry-gordeev-50116023/" target="_blank"><div className={classes.icon}>
-                                    <SvgLinkedinMark />
-                                </div></a>
-                                <a href="https://www.kaggle.com/dott1718" target="_blank"><div className={classes.iconKaggle}>
-                                    <SvgKaggleMark />
-                                </div></a>
+                    </Grid>
+                    <Grid item xl={4} lg={4} md={5} sm={8} xs={12}>
+                        <Box display="flex" width="100%" justifyContent="flex-start" mb={3}>
+                            <Avatar alt={'tom'} src={`${process.env.PUBLIC_URL}/images/events/18/dmitry.jpg`} className={classes.avatar} />
+                            <Box ml={2} display="flex" flexDirection="column" justifyContent="center">
+                                <Typography variant="h4">Dmitry Gordeev</Typography>
+                                <Typography variant="subtitle1">Kaggle Competitions Grandmaster<br/>Senior Data Scientist at H2O.ai</Typography>
+                                <Box display="flex">
+                                    <a href="https://www.linkedin.com/in/dmitry-gordeev-50116023/" target="_blank"><div className={classes.icon}>
+                                        <SvgLinkedinMark />
+                                    </div></a>
+                                    <a href="https://www.kaggle.com/dott1718" target="_blank"><div className={classes.iconKaggle}>
+                                        <SvgKaggleMark />
+                                    </div></a>
+                                </Box>
                             </Box>
                         </Box>
-                    </Box>
-                </Box>
+                    </Grid>
+                </Grid>
 
                 <Typography variant='h5' style={{display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
                     How to join?
@@ -169,15 +174,16 @@ export default function GFootball() {
                 <Typography variant='body2'>
                     Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
                     Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
-                </a> on December 3rd 12:00 PM CET. Please use "Sign up for the event" button and we will send out an invitation to you!
+                </a> on December 3rd 12:00 PM CET. Please use "Sign up for the meetup" button and we will send out an invitation to you!
                 </Typography>
                 <Typography variant='body2'>
-                     Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
+                    Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
                 </Typography>
-                <Typography variant='h5' style={{paddingTop: '15px', display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
-                    <span>Google Research Football Environment</span><iframe
+                <Typography variant='h5' style={{paddingTop: '15px', paddingRight: 0, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
+                    <span style={{paddingRight: '10px'}}>Google Research Football Environment</span>
+                    <iframe
                     src="https://ghbtns.com/github-btn.html?user=google-research&repo=football&type=star&count=true&size=large"
-                    frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
+                    frameBorder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
                 </Typography>
                 <div className={classes.videoWrapper}>
                     <iframe width="760" height="515" src="https://www.youtube.com/embed/F8DcgFDT9sc" frameBorder="0"

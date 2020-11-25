@@ -93,17 +93,19 @@ export default function Events() {
     return (
         <Box component='div' pb='0.5rem'>
             <Box component='div' display='flex' overflow='auto'>
-                <ButtonBase component={Link} to={'/events/gfootball'} className={classes.button}>
-                    <div className={`${classes.badge} ${classes.soon}`}>
-                        <span>Next</span>
-                    </div>
-                    <ImageFrame>
-                        <Image><div className={classes.gfootball}/></Image>
-                        <Typography className={classes.eventTitle} variant='h6' color={'textPrimary'}>
-                            Reinforcement Learning with <br/>Google Research Football
-                        </Typography>
-                    </ImageFrame>
-                </ButtonBase>
+                <a href={'/events/gfootball'} target="_self">
+                    <ButtonBase className={classes.button}>
+                        <div className={`${classes.badge} ${classes.soon}`}>
+                            <span>Next</span>
+                        </div>
+                        <ImageFrame>
+                            <Image><div className={classes.gfootball}/></Image>
+                            <Typography className={classes.eventTitle} variant='h6' color={'textPrimary'}>
+                                Reinforcement Learning with <br/>Google Research Football
+                            </Typography>
+                        </ImageFrame>
+                    </ButtonBase>
+                </a>
                 <a href={'https://www.linkedin.com/events/rigadsclubmeetup-17-buildingape6732745406326833152/'} target="_blank">
                     <ButtonBase className={classes.button}>
                         <div className={`${classes.badge} ${classes.past}`}>
