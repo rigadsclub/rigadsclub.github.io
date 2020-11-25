@@ -25,6 +25,7 @@ let theme = createMuiTheme({
             marginBlockEnd: '0.43em',
         },
         body2: {
+            fontSize: '1rem',
             marginBlockStart: '0.43em',
             marginBlockEnd: '0.43em',
         },

@@ -7,6 +7,7 @@ import About from "../components/elements/About";
 import Footer from "../components/elements/Footer";
 import TopWrapper from "../components/elements/TopWrapper";
 import BottomWrapper from "../components/elements/BottomWrapper";
+import Events from "../components/elements/Events";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -23,6 +24,10 @@ export default function Home() {
                     About
                 </Typography>
                 <About />
+                <Typography variant='h5'>
+                    Our meetups
+                </Typography>
+                <Events />
                 <Typography variant='h5'>
                     Our projects
                 </Typography>

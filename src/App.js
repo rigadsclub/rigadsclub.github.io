@@ -9,6 +9,7 @@ import ConfigProvider from "./components/providers/ConfigProvider";
 import ThemeProvider from "./components/providers/ThemeProvider";
 import RigaRealEstate from "./views/RigaRealEstate";
 import JoinUs from "./views/JoinUs";
+import GFootball from "./components/elements/events/GFootball";
 
 function App() {
     return (
@@ -16,6 +17,9 @@ function App() {
             <ConfigProvider>
                 <Router basename={process.env.PUBLIC_URL}>
                     <Switch>
+                        <Route path="/events/gfootball">
+                            <GFootball />
+                        </Route>
                         <Route path="/projects/riga-real-estate">
                             <RigaRealEstate />
                         </Route>
