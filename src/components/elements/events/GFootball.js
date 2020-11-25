@@ -86,7 +86,7 @@ export default function GFootball() {
                             <Typography variant='h4'>
                                 Meetup #18: Reinforcement Learning with Google Football
                                 <Typography variant="subtitle1">December 3rd, 12:00 PM CET in
-                                    <a className={classes.link} style={{marginLeft: 5}} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
+                                    <a className={classes.link} style={{marginLeft: 5}} href={"https://us02web.zoom.us/j/88647667218"} target="_blank">
                                         Zoom<span style={{marginLeft: 2}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-6px'}}/></span>
                                     </a>
                                 </Typography>
@@ -172,7 +172,7 @@ export default function GFootball() {
                     How to join?
                 </Typography>
                 <Typography variant='body2'>
-                    Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
+                    Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/j/88647667218"} target="_blank">
                     Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
                 </a> on December 3rd 12:00 PM CET. Please use "Sign up for the meetup" button and we will send out an invitation to you!
                 </Typography>

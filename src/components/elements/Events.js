@@ -109,7 +109,7 @@ export default function Events() {
                 <a href={'https://www.linkedin.com/events/rigadsclubmeetup-17-buildingape6732745406326833152/'} target="_blank">
                     <ButtonBase className={classes.button}>
                         <div className={`${classes.badge} ${classes.past}`}>
-                            <span>#16</span>
+                            <span># 17</span>
                         </div>
                         <ImageFrame>
                             <Image><div className={classes.branding}/></Image>
@@ -122,7 +122,7 @@ export default function Events() {
                 <a href={'https://www.linkedin.com/events/rigadsclubmeetup-16-dataethics6724008615625138176/'} target="_blank">
                     <ButtonBase className={classes.button}>
                         <div className={`${classes.badge} ${classes.past}`}>
-                            <span>#15</span>
+                            <span># 16</span>
                         </div>
                         <ImageFrame>
                             <Image><div className={classes.ethics}/></Image>
