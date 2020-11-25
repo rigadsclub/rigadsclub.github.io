@@ -60,6 +60,12 @@ const useStyles = makeStyles(theme => ({
         width: 20,
         height: 20,
         marginTop: -2
+    },
+    bodyLink: {
+        color: '#363636 !important',
+        '&:visited': {
+            color: '$363636 !important',
+        },
     }
 }));
 
@@ -78,9 +84,9 @@ export default function GFootball() {
                         <Box m={0.25}>
                             <Typography variant='h4'>
                                 Meetup #18: Reinforcement Learning with Google Football
-                                <Typography variant="subtitle1">December 3rd, 12:00 CET in
+                                <Typography variant="subtitle1">December 3rd, 12:00 PM CET in
                                     <a className={classes.link} style={{marginLeft: 5}} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
-                                            Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
+                                        Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
                                     </a>
                                 </Typography>
                             </Typography>
@@ -156,7 +162,19 @@ export default function GFootball() {
                         </Box>
                     </Box>
                 </Box>
+
                 <Typography variant='h5' style={{display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
+                    How to join?
+                </Typography>
+                <Typography variant='body2'>
+                    Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/s/88647667218"} target="_blank">
+                    Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
+                </a> on December 3rd 12:00 PM CET. Please use "Sign up for the event" button and we will send out an invitation to you!
+                </Typography>
+                <Typography variant='body2'>
+                     Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
+                </Typography>
+                <Typography variant='h5' style={{paddingTop: '15px', display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
                     <span>Google Research Football Environment</span><iframe
                     src="https://ghbtns.com/github-btn.html?user=google-research&repo=football&type=star&count=true&size=large"
                     frameBorder="0" scrolling="0" width="170" height="30" title="GitHub"></iframe>
