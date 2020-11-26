@@ -109,7 +109,15 @@ export default function GFootball() {
                                 We will have great guests - Tom Van de Wiele and Dmitry Gordeev who developed one of the most successful Google Football RL agents. They have gladly agreed to present their solution and insights learned through the process.
                             </Typography>
                             <Box mt={2}>
-                                <div title="Add to Calendar" className="addeventatc">
+                                <div title="Add to Calendar" className="addeventatc" onClick={() => {
+                                    const img = document.createElement('img');
+                                    img.height = 1;
+                                    img.width = 1;
+                                    img.style = { display: 'none' };
+                                    img.alt = '';
+                                    img.src = 'https://px.ads.linkedin.com/collect/?pid=2999905&conversionId=3665137&fmt=gif';
+                                    document.body.appendChild(img);
+                                }}>
                                     Add to Calendar
                                     <span className="start">2020-12-03 13:00</span>
                                     <span className="end">2020-12-03 14:00</span>
@@ -174,7 +182,10 @@ export default function GFootball() {
                 <Typography variant='body2'>
                     Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/j/88647667218"} target="_blank">
                     Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
-                </a> on December 3rd 12:00 PM CET. Please use "Sign up for the meetup" button and we will send out an invitation to you!
+                </a> on December 3rd 12:00 PM CET.
+                </Typography>
+                <Typography variant='body2'>
+                    Please use <a href="#" className={classes.bodyLink} onClick={() => window.SleekNote.triggerOnclick('a1f54ec7-8d39-4391-b7aa-947269039ad1')}>"Sign up for the meetup"</a> button and we will send out an invitation to you!
                 </Typography>
                 <Typography variant='body2'>
                     Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
