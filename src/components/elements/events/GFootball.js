@@ -185,7 +185,7 @@ export default function GFootball() {
                 </a> on December 3rd 12:00 PM CET.
                 </Typography>
                 <Typography variant='body2'>
-                    Please use <a href="#" className={classes.bodyLink} onClick={() => window.SleekNote.triggerOnclick('a1f54ec7-8d39-4391-b7aa-947269039ad1')}>"Sign up for the meetup"</a> button and we will send out an invitation to you!
+                    Please use <a href="#" className={classes.bodyLink} onClick={() => window.SleekNote.triggerOnclick('d4137522-667f-4f78-ac0c-ad22a39f9fb6')}>"Sign up for the meetup"</a> button and we will send out an invitation to you!
                 </Typography>
                 <Typography variant='body2'>
                     Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
