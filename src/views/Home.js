@@ -35,7 +35,7 @@ export default function Home() {
             </TopWrapper>
             <BottomWrapper>
                 <Typography variant='h5'>
-                    Members
+                    Members (122)
                 </Typography>
                 <Members />
                 <Footer />

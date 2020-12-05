@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <Container>
             <Typography variant="caption" display="block" gutterBottom align="center">
-                Riga Data Science Club, 2020
+                <a href={"https://www.linkedin.com/company/riga-ds-club"} style={{color: "black"}}>Riga Data Science Club, 2020</a>
             </Typography>
         </Container>
     );

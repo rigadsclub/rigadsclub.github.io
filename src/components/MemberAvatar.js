@@ -28,11 +28,11 @@ const useStyles = makeStyles(theme => ({
         color: '#494747',
     },
     icons: {
-      display: 'flex',
-      flexDirection: 'row',
-      justifyContent: 'center',
-      alignItems: 'center',
-      alignContent: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignContent: 'center',
     },
     icon: {
         width: 20,
@@ -41,11 +41,14 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function MemberAvatar({name, bio, image}) {
+export default function MemberAvatar({name, bio, image, linkedin}) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <Avatar alt={name} src={image} className={classes.avatar} />
+            {linkedin
+                ? <a href={linkedin} target="_blank"><Avatar alt={name} src={image} className={classes.avatar} /></a>
+                : <Avatar alt={name} src={image} className={classes.avatar} />
+            }
             <Typography variant="subtitle1">{name}</Typography>
             <Typography variant="subtitle2">{bio}</Typography>
         </div>

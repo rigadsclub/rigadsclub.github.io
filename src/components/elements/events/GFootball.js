@@ -172,21 +172,30 @@ export default function GFootball() {
                         </Box>
                     </Grid>
                 </Grid>
-
                 <Typography variant='h5' style={{display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
-                    How to join?
+                    Meetup recording
                 </Typography>
-                <Typography variant='body2'>
-                    Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/j/88647667218"} target="_blank">
-                    Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
-                </a> on December 3rd 12:00 PM CET.
-                </Typography>
-                <Typography variant='body2'>
-                    Please use <a href="#" className={classes.bodyLink} onClick={() => window.SleekNote.triggerOnclick('d4137522-667f-4f78-ac0c-ad22a39f9fb6')}>"Sign up for the meetup"</a> button and we will send out an invitation to you!
-                </Typography>
-                <Typography variant='body2'>
-                    Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
-                </Typography>
+                <div className={classes.videoWrapper}>
+                    <iframe width="760" height="515" src="https://www.youtube.com/embed/MmVcdfeRYD8" frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowFullScreen></iframe>
+                </div>
+                <div style={{visibility: "hidden"}}>
+                    <Typography variant='h5' style={{display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>
+                        How to join?
+                    </Typography>
+                    <Typography variant='body2'>
+                        Event will be held in <a className={classes.bodyLink} href={"https://us02web.zoom.us/j/88647667218"} target="_blank">
+                        Zoom<span style={{marginLeft: 5}}><img src={`${process.env.PUBLIC_URL}/images/events/zoom.png`} width={25} height={25} style={{marginBottom: '-5px'}}/></span>
+                    </a> on December 3rd 12:00 PM CET.
+                    </Typography>
+                    <Typography variant='body2'>
+                        Please use <a href="#" className={classes.bodyLink} onClick={() => window.SleekNote.triggerOnclick('d4137522-667f-4f78-ac0c-ad22a39f9fb6')}>"Sign up for the meetup"</a> button and we will send out an invitation to you!
+                    </Typography>
+                    <Typography variant='body2'>
+                        Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
+                    </Typography>
+                </div>
                 <Typography variant='h5' style={{paddingTop: '15px', paddingRight: 0, display: "flex", justifyContent: "space-between", alignItems: "center"}}>
                     <span style={{paddingRight: '10px'}}>Google Research Football Environment</span>
                     <iframe
@@ -194,7 +203,7 @@ export default function GFootball() {
                     frameBorder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
                 </Typography>
                 <div className={classes.videoWrapper}>
-                    <iframe width="760" height="515" src="https://www.youtube.com/embed/F8DcgFDT9sc" frameBorder="0"
+                    <iframe width="760" height="515" src="https://www.youtube.com/embed/Uk9p4Kk98_g" frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                             allowFullScreen></iframe>
                 </div>

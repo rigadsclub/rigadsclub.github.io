@@ -95,8 +95,8 @@ export default function Events() {
             <Box component='div' display='flex' overflow='auto'>
                 <a href={'/events/gfootball'} target="_self">
                     <ButtonBase className={classes.button}>
-                        <div className={`${classes.badge} ${classes.soon}`}>
-                            <span>Next</span>
+                        <div className={`${classes.badge} ${classes.past}`}>
+                            <span># 18</span>
                         </div>
                         <ImageFrame>
                             <Image><div className={classes.gfootball}/></Image>

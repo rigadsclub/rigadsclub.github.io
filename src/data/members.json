@@ -6,38 +6,58 @@
       "bio": "Consultant@Forward IT",
       "kaggle": "https://www.kaggle.com/dmitryyemelyanov",
       "github": "https://github.com/djemeljanovs",
-      "linkedin": "https://www.linkedin.com/in/djemeljanovs/"
+      "linkedin": "https://www.linkedin.com/in/datasciencedj"
     },
     {
-      "name": "Dmitry Trizna",
-      "image": "dtrizna.jpg",
-      "bio": "Penetration Tester, Security Researcher",
-      "kaggle": "https://www.kaggle.com/dmitrijstrizna"
-
+      "name": "Kate Kuznecova",
+      "image": "kkuznecova.jpeg",
+      "bio": "Data Scientist@DAIN Studios",
+      "linkedin": "https://www.linkedin.com/in/kate-kuznecova/"
     },
     {
       "name": "Cees Roele",
       "image": "croele.jpg",
       "bio": "Scrum Master / Data Scientist",
-      "kaggle": "https://www.kaggle.com/ceesroele"
+      "kaggle": "https://www.kaggle.com/ceesroele",
+      "linkedin": "https://www.linkedin.com/in/ceesroele/"
+    },
+    {
+      "name": "Arturs Valujevs",
+      "image": "avalujevs.png",
+      "bio": "Data Scientist",
+      "linkedin": "https://www.linkedin.com/in/valujevs/"
+    },
+    {
+      "name": "Dmitry Trizna",
+      "image": "dtrizna.jpg",
+      "bio": "Penetration Tester, Security Researcher",
+      "kaggle": "https://www.kaggle.com/dmitrijstrizna",
+      "linkedin": "https://www.linkedin.com/in/dmitrijs-trizna-b6776883/"
+    },
+    {
+      "name": "Ecaterina Vidrașcu",
+      "image": "evidrascu.jpeg",
+      "bio": "Alexa Skill Developer",
+      "linkedin": "https://www.linkedin.com/in/ecaterina-vidrascu/"
     },
     {
       "name": "Danil Yachmenev",
       "image": "dyachmenev.jpeg",
       "bio": "Data Scientist@Particle.One",
       "kaggle": "https://www.kaggle.com/danilyachmenev13"
-
     },
     {
       "name": "Annija Daugaviete",
       "image": "adaugaviete.jpg",
       "bio": "Junior Data Scientist@Creditreform Latvija",
-      "kaggle": "https://www.kaggle.com/annijadaugaviete"
+      "kaggle": "https://www.kaggle.com/annijadaugaviete",
+      "exclude": true
     },
     {
       "name": "Daria Lashkevich",
       "image": "dlashkevich.jpeg",
-      "bio": "AI Engineer | Data scientist | Speaker"
+      "bio": "AI Engineer | Data scientist | Speaker",
+      "exclude": true
     },
     {
       "name": "Edving Kronberg",
@@ -48,22 +68,12 @@
     {
       "name": "Narzullo Nasrullozoda",
       "image": "nnasrullozoda.jpeg",
-      "bio": "Data Science and Management@Leuphana University"
-    },
-    {
-      "name": "Kate Kuznecova",
-      "image": "kkuznecova.jpeg",
-      "bio": "Data Scientist@DAIN Studios"
+      "bio": "Data Science and Management@Leuphana University",
+      "exclude": true
     },
     {
       "name": "Vladyslav Yakovenko",
       "image": "vyakovenko.jpeg",
-      "bio": "Data Scientist"
-    },
-    {
-
-      "name": "Arturs Valujevs",
-      "image": "avalujevs.png",
       "bio": "Data Scientist"
     },
     {
@@ -84,15 +94,10 @@
     },
     {
 
-      "name": "Ecaterina Vidrașcu",
-      "image": "evidrascu.jpeg",
-      "bio": "Alexa Skill Developer"
-    },
-    {
-
       "name": "Alvaro Ager",
       "image": "aager.jpeg",
-      "bio": "Head of Business Intelligence at Sonarworks"
+      "bio": "Head of Business Intelligence at Sonarworks",
+      "linkedin": "https://www.linkedin.com/in/alvaroager/"
     },
     {
 

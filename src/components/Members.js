@@ -36,7 +36,7 @@ export default function Members() {
     return (
         <Grid container>
             {
-                members.list.map(member => (
+                members.list.filter(m => !m.exclude).map(member => (
                     <Grid key={member.name} item xl={2} lg={3} md={4} sm={6} xs={12}>
                         <MemberAvatar {...member} image={`${process.env.PUBLIC_URL}/images/avatar/${member.image}`} />
                     </Grid>
