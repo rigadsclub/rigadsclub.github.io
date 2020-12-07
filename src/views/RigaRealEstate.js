@@ -24,16 +24,33 @@ const useStyles = makeStyles(theme => ({
         height: theme.spacing(14),
     },
     iconLinkedin: {
-        width: 20,
-        height: 20,
-        marginRight: 5
+        width: 21,
+        height: 21,
+        marginRight: 5,
+        marginTop: 2,
     },
     iconKaggle: {
-        width: 20,
-        height: 20,
-        marginTop: -2,
-        marginLeft: -3,
+        width: 25,
+        height: 25,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/kaggle.jpeg)`,
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        marginRight: 5,
     },
+    iconGithub: {
+        width: 25,
+        height: 25,
+        backgroundImage: `url(${process.env.PUBLIC_URL}/images/github-square-512.png)`,
+        backgroundSize: "contain",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        marginRight: 5,
+    },
+    resourceLink: {
+        margin: 5,
+        color: "black !important",
+    }
 }));
 
 export default function RigaRealEstate() {
@@ -95,9 +112,9 @@ export default function RigaRealEstate() {
                                     <a href="https://www.linkedin.com/in/datasciencedj" target="_blank"><div className={classes.iconLinkedin}>
                                         <SvgLinkedinMark />
                                     </div></a>
-                                    <a href="https://www.kaggle.com/dmitryyemelyanov" target="_blank"><div className={classes.iconKaggle}>
-                                        <SvgKaggleMark />
-                                    </div></a>
+                                    <a href="https://www.kaggle.com/dmitryyemelyanov" target="_blank">
+                                        <div className={classes.iconKaggle} />
+                                    </a>
                                 </Box>
                             </Box>
                         </Box>
@@ -109,16 +126,56 @@ export default function RigaRealEstate() {
                                 <Typography variant="h4">Danil Yachmenev</Typography>
                                 <Typography variant="subtitle1">Data Scientist at Particle.One</Typography>
                                 <Box display="flex">
-                                    <a href="https://www.kaggle.com/danilyachmenev13" target="_blank"><div className={classes.iconKaggle}>
-                                        <SvgKaggleMark />
-                                    </div></a>
+                                    <a href="https://www.kaggle.com/danilyachmenev13" target="_blank">
+                                        <div className={classes.iconKaggle} />
+                                    </a>
                                 </Box>
                             </Box>
                         </Box>
                     </Grid>
                 </Grid>
+                    <Typography variant='h5'>
+                        Resources
+                        <Typography variant="subtitle2">our projects are open-source</Typography>
+                    </Typography>
+                <Typography variant="body2">
+                    <Box display="flex" alignItems="center" alignContent="center">
+                        <span className={classes.iconKaggle}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://www.kaggle.com/trolukovich/riga-real-estate-dataset">
+                            Original Riga Real Estate Dataset
+                        </a>
+                        <Typography variant="subtitle1">4689 real estate objects in Riga</Typography>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconKaggle}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://www.kaggle.com/dmitryyemelyanov/riga-real-estate-data-cleaning-riga-ds-club">Data cleaning</a>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconKaggle}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://www.kaggle.com/dmitryyemelyanov/riga-real-estate-dataset-cleaned">Cleaned Riga Real Estate Dataset</a>
+                        <Typography variant="subtitle1">4157 real estate rent/sale listings in Riga, Latvia</Typography>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconKaggle}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://www.kaggle.com/dmitryyemelyanov/riga-real-estate-price-prediction-with-tensorflow">TensorFlow model training</a>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconKaggle}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://www.kaggle.com/danilyachmenev13/riga-eda-geopy-and-model-comparison">Alternative Riga EDA, GeoPy and Model Comparison</a>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconGithub}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://github.com/rigadsclub/rigadsclub-meetup-5-tensorflow-serving">Deploying to Kubernetes Cluster with TensorFlow Serving</a>
+                    </Box>
+                    <Box display="flex">
+                        <span className={classes.iconGithub}/>
+                        <a target="_blank" className={classes.resourceLink} href="https://github.com/rigadsclub/rigadsclub.github.io">User interface</a>
+                    </Box>
+
+                </Typography>
                 <Typography variant='h5'>
                     Try it out!
+                    <Typography variant="subtitle2">warning: model inference is currently off</Typography>
                 </Typography>
                 <RigaRealEstateDemo />
                 {/*
