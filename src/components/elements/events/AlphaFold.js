@@ -41,7 +41,29 @@ const speakers = [
     },
 ]
 
-export default function GoogleFootball() {
+const AddToCalendar = <div title="Add to Calendar" className="addeventatc">
+    Add to Calendar
+    <span className="start">2020-12-17 13:00</span>
+    <span className="end">2020-12-17 14:00</span>
+    <span className="timezone">Europe/Riga</span>
+    <span className="title">Predicting Protein Structure with AlphaFold</span>
+    <span className="description">
+                                        Join us online with Zoom: https://us02web.zoom.us/j/87067598518
+                                        <br/><br/>
+                                        Protein structure prediction is of fundamental importance as the structure of a protein largely determines its function, however, protein structures can be difficult to determine experimentally.
+                                        <br/><br/>
+                                        In the recent Critical Assessment of Protein Structure Prediction (CASP14), DeepMind's AlphaFold 2 has shown it can guess how certain proteins will fold themselves with surprising accuracy.
+                                        <br/><br/>
+                                        <ol>
+                                            <li>We will give general concepts of protein structure prediction and a brief overview of CASP.</li>
+                                            <li>We will go through previous version of Alpha Fold and discuss what could be the architecture of Alpha Fold 2.</li>
+                                            <li>We will have open discussion and QA session with our honorable guests, Alfonso Valencia, one of the CASP14 jury members among them!</li>
+                                        </ol>
+                                    </span>
+    <span className="location">https://us02web.zoom.us/j/87067598518</span>
+</div>
+
+export default function AlphaFold() {
     return <Event
         id={19}
         title="Predicting Protein Structure with AlphaFold"
@@ -51,6 +73,7 @@ export default function GoogleFootball() {
         speakers={speakers}
         details={GoogleFootballDetails}
         speakersTitle="Guests"
+        addToCalendar={AddToCalendar}
     >
         <div>
             <Typography variant='h5' style={{display: "flex", justifyContent: "space-between", verticalAlign: "middle"}}>

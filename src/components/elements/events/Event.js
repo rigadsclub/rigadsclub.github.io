@@ -65,7 +65,8 @@ export default function Event({
                                   details,
                                   speakers,
                                   children,
-                                  speakersTitle="Speakers"
+                                  speakersTitle="Speakers",
+                                  addToCalendar
                               }) {
     const classes = useStyles({imagePath});
     return (
@@ -89,21 +90,9 @@ export default function Event({
                             </Typography>
                             {details}
                         </Box>
-                        <Box mt={2}>
-                            <div title="Add to Calendar" className="addeventatc">
-                                Add to Calendar
-                                <span className="start">2020-12-03 13:00</span>
-                                <span className="end">2020-12-03 14:00</span>
-                                <span className="timezone">Europe/Riga</span>
-                                <span className="title">Reinforcement Learning with Google Football</span>
-                                <span className="description">
-                                        Tom Van de Wiele and Dmitry Gordeev who developed one of the most successful Google Football RL agents will present their solution and insights learned through the process.
-                                        <br/><br/>
-                                        Join us online with Zoom: https://us02web.zoom.us/j/88647667218
-                                    </span>
-                                <span className="location">https://us02web.zoom.us/j/88647667218</span>
-                            </div>
-                        </Box>
+                        {addToCalendar && <Box mt={2}>
+                            {addToCalendar}
+                        </Box>}
                     </Box>
                 </Box>
             </TopWrapper>
