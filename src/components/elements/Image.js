@@ -7,8 +7,6 @@ const useStyles = makeStyles(theme => ({
         height: '20rem',
         minWidth: '100px',
         minHeight: '100px',
-        maxWidth: '300px',
-        maxHeight: '300px',
     },
 }));
 

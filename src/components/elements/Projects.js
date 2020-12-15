@@ -16,7 +16,7 @@ const useStyles = makeStyles(theme => ({
         paddingBottom: 10,
     },
     button: {
-        marginRight: 15,
+        paddingRight: theme.spacing(2),
         marginBottom: 15,
     },
     title: {
@@ -54,9 +54,6 @@ export default function Projects() {
                         <Image />
                     </Paper>
                 </ButtonBase>
-            </Box>
-            <Box component="div" display={{ xs: 'block', sm: 'block', md: 'none', lg: 'none', xl: 'none'}}>
-                <Typography variant='subtitle1' align='right'>Swipe to see more ></Typography>
             </Box>
         </Box>
     );
