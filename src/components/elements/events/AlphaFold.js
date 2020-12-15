@@ -39,6 +39,19 @@ const speakers = [
             <IconWikipedia href="https://en.wikipedia.org/wiki/Alfonso_Valencia" />,
         ]
     },
+    {
+        name: "Isabella I. Douzoglou",
+        titles: [
+            "Researcher in Biophysics & AI",
+            "Biophysics & AI Ph.D. Student",
+            "Bioinformatics & Systems Biology MSc.",
+            "Computer Science B.A., Communications B.S.",
+        ],
+        imagePath: "/images/events/19/isabella.jpeg",
+        children: [
+            <IconLinkedIn href="https://www.linkedin.com/in/isabella-i-douzoglou-b7953b6b/" />,
+        ]
+    }
 ]
 
 const AddToCalendar = <div title="Add to Calendar" className="addeventatc">
