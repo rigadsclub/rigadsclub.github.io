@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
     },
     badge: {
         fontWeight: "bold",
+        fontSize: theme.typography.pxToRem(12),
         backgroundColor: props => props.upcoming ? "red" : "#3B5998",
         transform: "rotate(-45deg)",
         position: "absolute",

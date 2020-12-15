@@ -85,7 +85,7 @@ export default function AlphaFold() {
             </EventBodyLink> on December 17th 12:00 PM CET.
             </Typography>
             <Typography variant='body2'>
-                Please use <EventBodyLink onClick={() => window.SleekNote.triggerOnclick('7aedd630-01be-4749-9e7f-66d4375c9329')}>"Sign up for the meetup"</EventBodyLink> button and we will send out an invitation to you!
+                Please use <EventBodyLink href="#" onClick={() => window.SleekNote.triggerOnclick('7aedd630-01be-4749-9e7f-66d4375c9329')}>"Sign up for the meetup"</EventBodyLink> button and we will send out an invitation to you!
             </Typography>
             <Typography variant='body2'>
                 Alternatively use "Add to Calendar" button above to save the date. See you soon at Riga Data Science Club!
