@@ -11,6 +11,7 @@ import RigaRealEstate from "./views/RigaRealEstate";
 import JoinUs from "./views/JoinUs";
 import AlphaFold from "./components/elements/events/AlphaFold";
 import GoogleFootball from "./components/elements/events/GoogleFootball";
+import UbiOps from "./components/elements/events/UbiOps";
 
 function App() {
     return (
@@ -18,6 +19,9 @@ function App() {
             <ConfigProvider>
                 <Router basename={process.env.PUBLIC_URL}>
                     <Switch>
+                        <Route path="/events/ubiops">
+                            <UbiOps />
+                        </Route>
                         <Route path="/events/alphafold">
                             <AlphaFold />
                         </Route>

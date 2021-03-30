@@ -25,12 +25,21 @@ export default function Events() {
         <Box display="flex" overflow="auto" pb={2} className={classes.scrollBar}>
             <Box pr={2}>
                 <SpotlightEvent
+                    id={27}
+                    href={'/events/ubiops'}
+                    badgeText="Apr 15"
+                    title="Introduction to MLOps"
+                    imagePath="/images/events/27/ubiops_thumbnail.png"
+                    upcoming
+                />
+            </Box>
+            <Box pr={2}>
+                <SpotlightEvent
                     id={19}
                     href={'/events/alphafold'}
                     badgeText="Dec 17"
                     title="Predicting Protein Structure with AlphaFold"
                     imagePath="/images/events/19/alphafold.jpg"
-                    upcoming
                 />
             </Box>
             <Box pr={2}>
